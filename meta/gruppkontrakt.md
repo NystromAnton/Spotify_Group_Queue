@@ -1,16 +1,7 @@
-# Gruppkontrakt ([GRUPP])
+# Gruppkontrakt Hallon
 
 Projektarbete på kursen Datorsystem med projekt (1DT003)
 våren 2019, Uppsala universitet.
-
-**TODO:** Byt ut [GRUPP] mot namnet på gruppen (se Studentportalen).
-
-**INFO:** Detta dokument är skrivet i
-formatet
-[Markdown](https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/).
-
-**INFO:** Det går att redigera, förhandsvisa och spara
-(commit) [sidan](./gruppkontrakt.md) på GitHub direkt i din webbläsare.
 
 ## Syfte
 
@@ -31,60 +22,45 @@ områden kan vara del av vad man kommer överens om i gruppkontraktet:
 - Hantering av brott mot reglerna i gruppkontraktet.
 - Allmänna förutsättningar.
 
-**TODO:** Nedan ges exempel på rubriker och innehåll. Gruppen skall tillsammans
- utgå från denna mall (ändra, ta bort eller lägga till text och rubriker) för
- att komma fram till ett gruppkontrakt som alla i gruppen är nöjda med.
-
 ## Rutiner
-
-Exempel på innehåll:
 
 - Skall gruppen i huvudsak sitta och arbeta tillsammans eller endast träffas för
   kortare möten?
+  Vi ska huvudsakligen jobba tillsammans om inte annat är specifikt avtalat mellan gruppmedlemmarna.
 - Hur ofta ska gruppen träffas?
+  Varje arbetsdag.
 - Hur långa ska mötena vara?
+  Daglig catchup, 5-20 min.
 - När på dagen ska mötena läggas?
+  09.00 AK
 - Vilka godtagbara skäl finns för frånvaro på möten?
-
+  Schemalägda moment i kurser, sjukdom och läkartid.
+- Github
+  Pull requests bör undersökas varje dag. Issues bör hållas små, korta med välbeskrivande namn.
 ## Kommunikationen i gruppen
 
-Exempel på innehåll:
-
 - Hur ska gruppen kommunicera mellan möten?
+  Messenger
 - Hur ska gruppen agera om någon inte kommer på ett möte?
+  Fråga om anledning och be om videolänk.  
 - Hur ska samordning och rapportering ske inom projektgruppen?
-
+  Vi samordnar och rapporterar kring vårt arbete på dagliga möten. Nästa veckas möten planeras på fredagar.
 ## Frånvaro
 
-Exempel på innehåll:
-
 - Hur och när skall frånvaro meddelas?
+  Minst en timme innan med skäl/orsak i messengerchatten
 - Hur skall man göra om någon varit frånvarande?
-- Skall frånvaro kompenseras genom annan arbetsinsats eller gäller det bara viss
-  typ av frånvaro?
+  Det är individens ansvar att ärligt kommunicera kring sin situation och ta initiativ för att kunna bidra även när hen varit frånvarande.
+  När en person varit mycket frånvarande från projektarbetet förväntas hen arbeta med gruppen på ett sätt som gör att allas arbetsinsatser är någorlunda jämlika i slutändan.
 
 ## Roller
 
-Exempel på innehåll:
-
-- Ska varje person i gruppen ha en formell roll?
-- Ska ni växla formella roller vid varje möte?
-- Vilka roller behövs:
-  - Projektledare?
-  - Sekreterare?
-  - Systemarkitekt?
-  - Testansvarig?
-  - Dokumentansvarig?
-  - Andra roller?
+  Vi kommer inledande inte att ha några formella roller i gruppen. Vi ska ha ett rullande schema för sekreterare på mötena. Agnes och Catya tar på sig att gå på workshops. Eventuellt kommer vi diskutera att tillsätta formella roller under projektets gång.
 
 ## Beslutsformer
 
-Exempel på innehåll:
-
 - Hur ska gruppen komma överens om vad som ska göras?
-- Ska majoritetsbeslut gälla eller ska gruppen genom diskussion försöka få alla
-  att vara överens om beslutet?
-- Hur ska ni gör ifall ni är oeniga?
+  Vi för en öppen diskussion kring designbeslut och annat på mötena. Detta leder till ett majoritetsbeslut. Under diskussioner ska kritik hållas konstruktiv och gärna
 
 ## Arbetsinsats
 
@@ -92,31 +68,29 @@ För att undvika en del missförstånd och irritation kan det vara bra att redan
 från början göra klart för varandra vilka olika typer av arbetsinsatser som kan
 förekomma. Exempel på innehåll:
 
-- Exempel på olika former av arbetsinsatser.
+- Exempel på olika former av arbetsinsatser:
+  Möten, research, rapportskrivning, presentationsplanering, implementation och designarbete
 - Vilka krav kan man ställa på varandra?
+  Som sagt bör man kunna förvänta sig att alla gjort sitt bästa och försökt lägga ned en jämlik arbetsinsats i projektet till den grad detta är möjligt.
 - Hur ska arbetet fördelas i gruppen?
+  Genom en öppen diskussion och initiativ mellan gruppmedlemmar.  
 - Hur ska gruppen hantera om någon inte gör sin del av arbetet?
-- Hur mycket arbete ska göras mellan möten?
+  Som sagt förväntas gruppmedlemmar kommunicera ärligt om hur det går så att när problem uppstår kan dessa diskuteras och lösas på lämpligt sätt av gruppen.
+  
+## Kodkonvention
+
+- Camelcasing
+- Tabs är två spaces
+- Måsvingar på samma rad
 
 ## Hantering av brott mot bestämmelserna i gruppkontraktet
 
-**INFO:** Det är viktigt att både kunna ta och ge konstruktiv kritik. För att
-förebygga konflikter är det bättre att säga till direkt om du upplever att någon
-bryter mot överenskommelserna i gruppkontraktet.
-
-**TODO:** Beskriv på vilket sätt upplevda överträdelser mot gruppkontraktet
-skall hanteras. Här bör ni diskutera på vilket sätt kritik skall framföras och
-bemötas.
-
-Skall kritik framföras och bemötas:
-
-- muntligt under det dagliga mötet?
-- skriftligt (mail, sms, annat)?
-- annat sätt?
+När gruppen upplever att en överträdelse har skett på detta kontrakt skall ett gruppmöte hållas där frågan lyfts och alla får uttrycka sina åsikter om situationen på ett konstruktivt men ärligt sätt.
 
 ## Konflikter
 
 Hur skall ni gå tillväga om det uppstår konflikter?
+Genom att prata som vuxna människor, helst ska gruppen medverka så mycket det går så man får fler nyanserade perspektiv på saker och man kan hjälpa till att lugna ned varandra.
 
 ## Utskrift och underskrifter
 
@@ -128,8 +102,6 @@ repository på GitHub.
 Detta kontrakt har den __________________________ upprättats av:
 
 
-**TODO:** I tabellen nedan skall gruppen medlemmar listas sorterade på förnamn.
-
 Förnamn | Efternamn | . . . . . . . . . . . Underskrift . . . . . . . . . . .
 --------|-----------|------------
 Anders  | Andersson |
@@ -138,9 +110,3 @@ Cecila  | Carlsson  |
 Daniel  | Dahlqvist |
 Erik    | Eklund    |
 Fanny   | Forsberg  |
-
-## Färdigställ
-
-- Tag bort avsnittet **Syfte**.
-- Tag bort alla stycken markerade med **TODO** och **INFO**.
-- Tag bort hela detta avsnitt, dvs tag bort avsnittet **Färdigställ**.
