@@ -28,15 +28,14 @@ områden kan vara del av vad man kommer överens om i gruppkontraktet:
   Vi ska träffas varje arbetsdag.
   Vi ska ha ett dagligt catchup möte, 5-20 min 09.00 AK.  
   Godtagbara skäl finns för frånvaro på möten:  Schemalägda moment i kurser, sjukdom och läkartid.  
-  Github:  
-  Pull requests bör undersökas varje dag. Issues bör hållas små, korta med välbeskrivande namn.
+  Github: Pull requests bör undersökas varje dag. Issues bör hållas små, korta med välbeskrivande namn.
 ## Kommunikationen i gruppen
 
-- Hur ska gruppen kommunicera mellan möten?
+- Hur ska gruppen kommunicera mellan möten?  
   Messenger
-- Hur ska gruppen agera om någon inte kommer på ett möte?
+- Hur ska gruppen agera om någon inte kommer på ett möte?  
   Fråga om anledning och be om videolänk.  
-- Hur ska samordning och rapportering ske inom projektgruppen?
+- Hur ska samordning och rapportering ske inom projektgruppen?  
   Vi samordnar och rapporterar kring vårt arbete på dagliga möten. Nästa veckas möten planeras på fredagar.
 ## Frånvaro
 
@@ -52,7 +51,7 @@ områden kan vara del av vad man kommer överens om i gruppkontraktet:
 
 ## Beslutsformer
 
-- Hur ska gruppen komma överens om vad som ska göras?
+- Hur ska gruppen komma överens om vad som ska göras?  
   Vi för en öppen diskussion kring designbeslut och annat på mötena. Detta leder till ett majoritetsbeslut. Under diskussioner ska kritik hållas konstruktiv och gärna
 
 ## Arbetsinsats
@@ -61,13 +60,13 @@ För att undvika en del missförstånd och irritation kan det vara bra att redan
 från början göra klart för varandra vilka olika typer av arbetsinsatser som kan
 förekomma. Exempel på innehåll:
 
-- Exempel på olika former av arbetsinsatser:
+- Exempel på olika former av arbetsinsatser:  
   Möten, research, rapportskrivning, presentationsplanering, implementation och designarbete
-- Vilka krav kan man ställa på varandra?
+- Vilka krav kan man ställa på varandra?  
   Som sagt bör man kunna förvänta sig att alla gjort sitt bästa och försökt lägga ned en jämlik arbetsinsats i projektet till den grad detta är möjligt.
-- Hur ska arbetet fördelas i gruppen?
+- Hur ska arbetet fördelas i gruppen?  
   Genom en öppen diskussion och initiativ mellan gruppmedlemmar.  
-- Hur ska gruppen hantera om någon inte gör sin del av arbetet?
+- Hur ska gruppen hantera om någon inte gör sin del av arbetet?  
   Som sagt förväntas gruppmedlemmar kommunicera ärligt om hur det går så att när problem uppstår kan dessa diskuteras och lösas på lämpligt sätt av gruppen.
   
 ## Kodkonvention
