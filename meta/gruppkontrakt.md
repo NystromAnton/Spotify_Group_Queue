@@ -96,9 +96,9 @@ Detta kontrakt har den __________________________ upprättats av:
 
 Förnamn | Efternamn | . . . . . . . . . . . Underskrift . . . . . . . . . . .
 --------|-----------|------------
-Anders  | Andersson |
-Britta  | Björk     |
-Cecila  | Carlsson  |
-Daniel  | Dahlqvist |
-Erik    | Eklund    |
-Fanny   | Forsberg  |
+Nils  | Hedberg |
+Agnes  | Abrahamsson     |
+Anton  | Nyström  |
+Alexander  | Sellström |
+Catya    | Kemppainen    |
+Markus   | Johnson  |
