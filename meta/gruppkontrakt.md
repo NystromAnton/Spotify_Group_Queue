@@ -24,18 +24,11 @@ områden kan vara del av vad man kommer överens om i gruppkontraktet:
 
 ## Rutiner
 
-- Skall gruppen i huvudsak sitta och arbeta tillsammans eller endast träffas för
-  kortare möten?
   Vi ska huvudsakligen jobba tillsammans om inte annat är specifikt avtalat mellan gruppmedlemmarna.
-- Hur ofta ska gruppen träffas?
-  Varje arbetsdag.
-- Hur långa ska mötena vara?
-  Daglig catchup, 5-20 min.
-- När på dagen ska mötena läggas?
-  09.00 AK
-- Vilka godtagbara skäl finns för frånvaro på möten?
-  Schemalägda moment i kurser, sjukdom och läkartid.
-- Github
+  Vi ska träffas varje arbetsdag.
+  Vi ska ha ett dagligt catchup möte, 5-20 min 09.00 AK.
+  Godtagbara skäl finns för frånvaro på möten: Schemalägda moment i kurser, sjukdom och läkartid.
+  Github:
   Pull requests bör undersökas varje dag. Issues bör hållas små, korta med välbeskrivande namn.
 ## Kommunikationen i gruppen
 
