@@ -26,8 +26,8 @@ områden kan vara del av vad man kommer överens om i gruppkontraktet:
 
   Vi ska huvudsakligen jobba tillsammans om inte annat är specifikt avtalat mellan gruppmedlemmarna.
   Vi ska träffas varje arbetsdag.
-  Vi ska ha ett dagligt catchup möte, 5-20 min 09.00 AK.
-  Godtagbara skäl finns för frånvaro på möten:  Schemalägda moment i kurser, sjukdom och läkartid.
+  Vi ska ha ett dagligt catchup möte, 5-20 min 09.00 AK.  
+  Godtagbara skäl finns för frånvaro på möten:  Schemalägda moment i kurser, sjukdom och läkartid.  
   Github:  
   Pull requests bör undersökas varje dag. Issues bör hållas små, korta med välbeskrivande namn.
 ## Kommunikationen i gruppen
@@ -40,10 +40,10 @@ områden kan vara del av vad man kommer överens om i gruppkontraktet:
   Vi samordnar och rapporterar kring vårt arbete på dagliga möten. Nästa veckas möten planeras på fredagar.
 ## Frånvaro
 
-- Hur och när skall frånvaro meddelas?
+- Hur och när skall frånvaro meddelas?  
   Minst en timme innan med skäl/orsak i messengerchatten
-- Hur skall man göra om någon varit frånvarande?
-  Det är individens ansvar att ärligt kommunicera kring sin situation och ta initiativ för att kunna bidra även när hen varit frånvarande.
+- Hur skall man göra om någon varit frånvarande?  
+  Det är individens ansvar att ärligt kommunicera kring sin situation och ta initiativ för att kunna bidra även när hen varit frånvarande.  
   När en person varit mycket frånvarande från projektarbetet förväntas hen arbeta med gruppen på ett sätt som gör att allas arbetsinsatser är någorlunda jämlika i slutändan.
 
 ## Roller
@@ -82,7 +82,7 @@ När gruppen upplever att en överträdelse har skett på detta kontrakt skall e
 
 ## Konflikter
 
-Hur skall ni gå tillväga om det uppstår konflikter?
+Hur skall ni gå tillväga om det uppstår konflikter?  
 Genom att prata som vuxna människor, helst ska gruppen medverka så mycket det går så man får fler nyanserade perspektiv på saker och man kan hjälpa till att lugna ned varandra.
 
 ## Utskrift och underskrifter
