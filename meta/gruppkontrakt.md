@@ -77,7 +77,7 @@ förekomma. Exempel på innehåll:
 
 ## Hantering av brott mot bestämmelserna i gruppkontraktet
 
-När gruppen upplever att en överträdelse har skett på detta kontrakt skall ett gruppmöte hållas där frågan lyfts och alla får uttrycka sina åsikter om situationen på ett konstruktivt men ärligt sätt. Konsekvensen av brottet kan då diskuteras på för att komma fram till en lösning som känns rättvis.
+När gruppen upplever att en överträdelse har skett på detta kontrakt skall ett gruppmöte hållas där frågan lyfts och alla får uttrycka sina åsikter om situationen på ett konstruktivt men ärligt sätt. Konsekvensen av brottet kan då diskuteras för att komma fram till en rättvis lösning.
 
 ## Konflikter
 
