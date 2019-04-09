@@ -56,10 +56,6 @@ områden kan vara del av vad man kommer överens om i gruppkontraktet:
 
 ## Arbetsinsats
 
-För att undvika en del missförstånd och irritation kan det vara bra att redan
-från början göra klart för varandra vilka olika typer av arbetsinsatser som kan
-förekomma. Exempel på innehåll:
-
 - Exempel på olika former av arbetsinsatser:  
   Möten, research, rapportskrivning, presentationsplanering, implementation och designarbete
 - Vilka krav kan man ställa på varandra?  
