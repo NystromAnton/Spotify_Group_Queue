@@ -40,52 +40,34 @@ Bild | Förnamn | Efternamn | Personnummer | Användarnamn (GitHub)
 <img src="images/user.png" width="180"/> | [Nils](#Nils-Hedberg) | Hedberg | YYMMDD-XXXX | `anders877`
 
 
-**TODO:** Utgå från mallen nedan och skapa ett avsnitt för varje medlem i
-gruppen sorterade i bokstavsordning.
-
 ## Agnes Abrahamsson
 
 ### Okänd talang
 
-**TODO:** Beskriv kortfattad något du gillar att göra vid sidan av dina studier.
+På fritiden gillar jag att engagera mig för djurs rättigheter och laga vegansk mat :)
 
 ### Starka sidor
 
 Under projektet tror jag att jag kommer ha lättast att bidra med:
 
-**TODO:** Skapa en lista med kortfattad beskrivning över områden där du tror du
- har lättast att bidra till projektet, till exempel:
-
-- analys/design/specifikation
-- problemlösning och algoritmer
-- skriva kod utifrån färdig specifikation
-- planering
-- samarbete
-- ledarskap
-- research (söka och sammanställa information)
-- dokumentation
-- rapportskrivande
-- muntlig presentation
-- lägg gärna till flera punkter ...
+- Samarbete
+- Planering
+- Dokumentation
+- Muntlig presentation
+- Rapportskrivande
+- Bra stämning :)
 
 ### Personlig utveckling
 
 Under projektet hoppas jag förutom att bli ännu bättre på mina redan starka
 sidor även ges möjlighet att utveckla följande färdigheter, till exempel:
 
-**TODO:** Skapa en lista, till exempel:
-
 - analys/design/specifikation
 - problemlösning och algoritmer
 - skriva kod utifrån färdig specifikation
-- planering
-- samarbete
-- ledarskap
 - research (söka och sammanställa information)
-- dokumentation
-- rapportskrivande
-- muntlig presentation
-- lägg gärna till flera punkter ...
+- Jobba agilt
+- Komma i tid
 
 
 ## Alexander Sellström
