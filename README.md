@@ -1,10 +1,8 @@
-# [PROJEKT] ([GRUPP])
+# [PROJEKT] Grupp Hallon
 
 Projektarbete på kursen Datorsystem med projekt (1DT003) våren 2019, Uppsala universitet.
 
 **TODO:** Byt ut [PROJEKT] mot det namn ni själva givet projektet.
-
-**TODO:** Byt ut [GRUPP] mot namnet på gruppen (se Studentportalen). 
 
 **INFO:** Detta dokument är skrivet i
 formatet
