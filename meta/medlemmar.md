@@ -208,16 +208,11 @@ sidor även ges möjlighet att utveckla följande färdigheter, till exempel:
 ## Markus Johnson
 
 ### Okänd talang
-
-**TODO:** Beskriv kortfattad något du gillar att göra vid sidan av dina studier.
+Gillar att rita och spela musik. Har tidigare spelat basket
 
 ### Starka sidor
-
 Under projektet tror jag att jag kommer ha lättast att bidra med:
 
-**TODO:** Skapa en lista med kortfattad beskrivning över områden där du tror du
- har lättast att bidra till projektet, till exempel:
-
 - analys/design/specifikation
 - problemlösning och algoritmer
 - skriva kod utifrån färdig specifikation
@@ -227,27 +222,18 @@ Under projektet tror jag att jag kommer ha lättast att bidra med:
 - research (söka och sammanställa information)
 - dokumentation
 - rapportskrivande
-- muntlig presentation
-- lägg gärna till flera punkter ...
+- utvärdering av praktisk genomförbarhet
+- idé spruta
 
 ### Personlig utveckling
+Under projektet hoppas jag förutom att bli ännu bättre på mina redan starka sidor även ges möjlighet att utveckla följande färdigheter, till exempel:
 
-Under projektet hoppas jag förutom att bli ännu bättre på mina redan starka
-sidor även ges möjlighet att utveckla följande färdigheter, till exempel:
-
-**TODO:** Skapa en lista, till exempel:
-
-- analys/design/specifikation
 - problemlösning och algoritmer
 - skriva kod utifrån färdig specifikation
-- planering
 - samarbete
 - ledarskap
-- research (söka och sammanställa information)
-- dokumentation
-- rapportskrivande
-- muntlig presentation
-- lägg gärna till flera punkter ...
+- arbetsfördelning och konflikt resolution
+
 
 
 ## Nils Hedberg
