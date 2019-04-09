@@ -32,6 +32,11 @@ ankaret `#en-rubrik-med-åäö`.
 
 Bild | Förnamn | Efternamn | Personnummer | Användarnamn (GitHub)
 -----------------------------------------|-----------------------------|-----------|--------------|----------------------
+<img src="images/Markus_profile.png" width="180"/> | [Anders](#anders-andersson) | Andersson | YYMMDD-XXXX | `anders877`
+<img src="images/user.png" width="180"/> | [Anders](#anders-andersson) | Andersson | YYMMDD-XXXX | `anders877`
+<img src="images/user.png" width="180"/> | [Anders](#anders-andersson) | Andersson | YYMMDD-XXXX | `anders877`
+<img src="images/user.png" width="180"/> | [Anders](#anders-andersson) | Andersson | YYMMDD-XXXX | `anders877`
+<img src="images/user.png" width="180"/> | [Anders](#anders-andersson) | Andersson | YYMMDD-XXXX | `anders877`
 <img src="images/user.png" width="180"/> | [Anders](#anders-andersson) | Andersson | YYMMDD-XXXX | `anders877`
 
 **TODO:** Utgå från mallen nedan och skapa ett avsnitt för varje medlem i
