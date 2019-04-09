@@ -164,45 +164,30 @@ sidor även ges möjlighet att utveckla följande färdigheter, till exempel:
 
 ### Okänd talang
 
-**TODO:** Beskriv kortfattad något du gillar att göra vid sidan av dina studier.
+Något som jag verkligen gillar att göra på fritiden är att baka.
 
 ### Starka sidor
 
 Under projektet tror jag att jag kommer ha lättast att bidra med:
 
-**TODO:** Skapa en lista med kortfattad beskrivning över områden där du tror du
- har lättast att bidra till projektet, till exempel:
-
-- analys/design/specifikation
-- problemlösning och algoritmer
-- skriva kod utifrån färdig specifikation
+- analys
 - planering
 - samarbete
-- ledarskap
-- research (söka och sammanställa information)
-- dokumentation
 - rapportskrivande
 - muntlig presentation
-- lägg gärna till flera punkter ...
 
 ### Personlig utveckling
 
 Under projektet hoppas jag förutom att bli ännu bättre på mina redan starka
 sidor även ges möjlighet att utveckla följande färdigheter, till exempel:
 
-**TODO:** Skapa en lista, till exempel:
-
 - analys/design/specifikation
 - problemlösning och algoritmer
 - skriva kod utifrån färdig specifikation
-- planering
-- samarbete
-- ledarskap
 - research (söka och sammanställa information)
 - dokumentation
 - rapportskrivande
-- muntlig presentation
-- lägg gärna till flera punkter ...
+- arbeta självständigt
 
 
 ## Markus Johnson
