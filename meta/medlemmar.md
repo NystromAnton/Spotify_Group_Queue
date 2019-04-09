@@ -32,7 +32,7 @@ ankaret `#en-rubrik-med-åäö`.
 
 Bild | Förnamn | Efternamn | Personnummer | Användarnamn (GitHub)
 -----------------------------------------|-----------------------------|-----------|--------------|----------------------
-<img src="images/Markus_profile.png" width="180"/> | [Anders](#anders-andersson) | Andersson | YYMMDD-XXXX | `anders877`
+<img src="images/Markus_profile.jpg" width="180"/> | [Markus](#Markus-Johnson) | Johnson | 931002-8635 | `Mk3Johnson`
 <img src="images/user.png" width="180"/> | [Anders](#anders-andersson) | Andersson | YYMMDD-XXXX | `anders877`
 <img src="images/user.png" width="180"/> | [Anders](#anders-andersson) | Andersson | YYMMDD-XXXX | `anders877`
 <img src="images/user.png" width="180"/> | [Anders](#anders-andersson) | Andersson | YYMMDD-XXXX | `anders877`
