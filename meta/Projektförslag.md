@@ -8,7 +8,7 @@ Vi vill göra det enklare för människor att delta, bestämma och föra en tala
 För att förverkliga detta ska vi utveckla en android-app som använder sig av Spotify's API, antingen deras android SDK eller om vi använder deras web API i en webbapp.
 
 ### Utvecklingar
-Vi kommer främst försöka få en fungerande app. Men utvecklingar som vi tänker genomföra vid mån om tid är:
+Vi kommer främst försöka göra en fungerande app. Men utvecklingar som vi tänker genomföra vid mån om tid är:
 - Röstning om låtar upvote/downvote för att sortera låtarna 
 - Regler om: hur många låtar, misskötande, max antal låtar etc
 - Regler om vem som ansluta
