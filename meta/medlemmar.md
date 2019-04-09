@@ -60,7 +60,7 @@ Under projektet tror jag att jag kommer ha lättast att bidra med:
 ### Personlig utveckling
 
 Under projektet hoppas jag förutom att bli ännu bättre på mina redan starka
-sidor även ges möjlighet att utveckla följande färdigheter, till exempel:
+sidor även ges möjlighet att utveckla följande färdigheter:
 
 - analys/design/specifikation
 - problemlösning och algoritmer
