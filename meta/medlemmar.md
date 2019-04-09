@@ -1,8 +1,6 @@
-# Medlemmar ([GRUPP])
+# Medlemmar Hallon
 
 Projektarbete på kursen Datorsystem med projekt (1DT003) våren 2019, Uppsala universitet.
-
-**TODO:** Byt ut [GRUPP] mot namnet på gruppen (se Studentportalen).
 
 **INFO:** Detta dokument är skrivet i
 formatet
