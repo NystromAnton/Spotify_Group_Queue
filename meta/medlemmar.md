@@ -45,25 +45,230 @@ gruppen sorterade i bokstavsordning.
 
 ## Agnes Abrahamsson
 
+### Okänd talang
+
+**TODO:** Beskriv kortfattad något du gillar att göra vid sidan av dina studier.
+
+### Starka sidor
+
+Under projektet tror jag att jag kommer ha lättast att bidra med:
+
+**TODO:** Skapa en lista med kortfattad beskrivning över områden där du tror du
+ har lättast att bidra till projektet, till exempel:
+
+- analys/design/specifikation
+- problemlösning och algoritmer
+- skriva kod utifrån färdig specifikation
+- planering
+- samarbete
+- ledarskap
+- research (söka och sammanställa information)
+- dokumentation
+- rapportskrivande
+- muntlig presentation
+- lägg gärna till flera punkter ...
+
+### Personlig utveckling
+
+Under projektet hoppas jag förutom att bli ännu bättre på mina redan starka
+sidor även ges möjlighet att utveckla följande färdigheter, till exempel:
+
+**TODO:** Skapa en lista, till exempel:
+
+- analys/design/specifikation
+- problemlösning och algoritmer
+- skriva kod utifrån färdig specifikation
+- planering
+- samarbete
+- ledarskap
+- research (söka och sammanställa information)
+- dokumentation
+- rapportskrivande
+- muntlig presentation
+- lägg gärna till flera punkter ...
+
 
 ## Alexander Sellström
+
+### Okänd talang
+
+**TODO:** Beskriv kortfattad något du gillar att göra vid sidan av dina studier.
+
+### Starka sidor
+
+Under projektet tror jag att jag kommer ha lättast att bidra med:
+
+**TODO:** Skapa en lista med kortfattad beskrivning över områden där du tror du
+ har lättast att bidra till projektet, till exempel:
+
+- analys/design/specifikation
+- problemlösning och algoritmer
+- skriva kod utifrån färdig specifikation
+- planering
+- samarbete
+- ledarskap
+- research (söka och sammanställa information)
+- dokumentation
+- rapportskrivande
+- muntlig presentation
+- lägg gärna till flera punkter ...
+
+### Personlig utveckling
+
+Under projektet hoppas jag förutom att bli ännu bättre på mina redan starka
+sidor även ges möjlighet att utveckla följande färdigheter, till exempel:
+
+**TODO:** Skapa en lista, till exempel:
+
+- analys/design/specifikation
+- problemlösning och algoritmer
+- skriva kod utifrån färdig specifikation
+- planering
+- samarbete
+- ledarskap
+- research (söka och sammanställa information)
+- dokumentation
+- rapportskrivande
+- muntlig presentation
+- lägg gärna till flera punkter ...
 
 
 ## Anton Nyström
 
+### Okänd talang
+
+**TODO:** Beskriv kortfattad något du gillar att göra vid sidan av dina studier.
+
+### Starka sidor
+
+Under projektet tror jag att jag kommer ha lättast att bidra med:
+
+**TODO:** Skapa en lista med kortfattad beskrivning över områden där du tror du
+ har lättast att bidra till projektet, till exempel:
+
+- analys/design/specifikation
+- problemlösning och algoritmer
+- skriva kod utifrån färdig specifikation
+- planering
+- samarbete
+- ledarskap
+- research (söka och sammanställa information)
+- dokumentation
+- rapportskrivande
+- muntlig presentation
+- lägg gärna till flera punkter ...
+
+### Personlig utveckling
+
+Under projektet hoppas jag förutom att bli ännu bättre på mina redan starka
+sidor även ges möjlighet att utveckla följande färdigheter, till exempel:
+
+**TODO:** Skapa en lista, till exempel:
+
+- analys/design/specifikation
+- problemlösning och algoritmer
+- skriva kod utifrån färdig specifikation
+- planering
+- samarbete
+- ledarskap
+- research (söka och sammanställa information)
+- dokumentation
+- rapportskrivande
+- muntlig presentation
+- lägg gärna till flera punkter ...
+
 
 ## Catya Kemppainen
+
+### Okänd talang
+
+**TODO:** Beskriv kortfattad något du gillar att göra vid sidan av dina studier.
+
+### Starka sidor
+
+Under projektet tror jag att jag kommer ha lättast att bidra med:
+
+**TODO:** Skapa en lista med kortfattad beskrivning över områden där du tror du
+ har lättast att bidra till projektet, till exempel:
+
+- analys/design/specifikation
+- problemlösning och algoritmer
+- skriva kod utifrån färdig specifikation
+- planering
+- samarbete
+- ledarskap
+- research (söka och sammanställa information)
+- dokumentation
+- rapportskrivande
+- muntlig presentation
+- lägg gärna till flera punkter ...
+
+### Personlig utveckling
+
+Under projektet hoppas jag förutom att bli ännu bättre på mina redan starka
+sidor även ges möjlighet att utveckla följande färdigheter, till exempel:
+
+**TODO:** Skapa en lista, till exempel:
+
+- analys/design/specifikation
+- problemlösning och algoritmer
+- skriva kod utifrån färdig specifikation
+- planering
+- samarbete
+- ledarskap
+- research (söka och sammanställa information)
+- dokumentation
+- rapportskrivande
+- muntlig presentation
+- lägg gärna till flera punkter ...
 
 
 ## Markus Johnson
 
+### Okänd talang
+
+**TODO:** Beskriv kortfattad något du gillar att göra vid sidan av dina studier.
+
+### Starka sidor
+
+Under projektet tror jag att jag kommer ha lättast att bidra med:
+
+**TODO:** Skapa en lista med kortfattad beskrivning över områden där du tror du
+ har lättast att bidra till projektet, till exempel:
+
+- analys/design/specifikation
+- problemlösning och algoritmer
+- skriva kod utifrån färdig specifikation
+- planering
+- samarbete
+- ledarskap
+- research (söka och sammanställa information)
+- dokumentation
+- rapportskrivande
+- muntlig presentation
+- lägg gärna till flera punkter ...
+
+### Personlig utveckling
+
+Under projektet hoppas jag förutom att bli ännu bättre på mina redan starka
+sidor även ges möjlighet att utveckla följande färdigheter, till exempel:
+
+**TODO:** Skapa en lista, till exempel:
+
+- analys/design/specifikation
+- problemlösning och algoritmer
+- skriva kod utifrån färdig specifikation
+- planering
+- samarbete
+- ledarskap
+- research (söka och sammanställa information)
+- dokumentation
+- rapportskrivande
+- muntlig presentation
+- lägg gärna till flera punkter ...
+
 
 ## Nils Hedberg
-
-
-
-
-
 
 ### Okänd talang
 
