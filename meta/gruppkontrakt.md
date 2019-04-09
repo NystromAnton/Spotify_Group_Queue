@@ -52,7 +52,7 @@ områden kan vara del av vad man kommer överens om i gruppkontraktet:
 ## Beslutsformer
 
 - Hur ska gruppen komma överens om vad som ska göras?  
-  Vi för en öppen diskussion kring designbeslut och annat på mötena. Detta leder till ett majoritetsbeslut. Under diskussioner ska kritik hållas konstruktiv och gärna komma med förslag på alternativa lösningar.
+  Vi för en öppen diskussion kring designbeslut och annat på mötena. Detta leder till ett majoritetsbeslut. Under diskussioner ska kritik hållas konstruktiv och helst komma med förslag på alternativa lösningar.
 
 ## Arbetsinsats
 
