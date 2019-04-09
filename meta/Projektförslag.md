@@ -12,6 +12,7 @@ Vi kommer främst försöka göra en fungerande app. Men utvecklingar som vi tä
 - Röstning om låtar upvote/downvote för att sortera låtarna 
 - Regler om: hur många låtar, misskötande, max antal låtar etc
 - Regler om vem som ansluta
+- Kunna spela låtar från andra plattformar än spotify, t.ex. SoundCloud
 
 ### Hur är projektet kopplat till kursen och temat?
 
