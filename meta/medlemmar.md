@@ -2,34 +2,6 @@
 
 Projektarbete på kursen Datorsystem med projekt (1DT003) våren 2019, Uppsala universitet.
 
-**INFO:** Detta dokument är skrivet i
-formatet
-[Markdown](https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/).
-
-**INFO:** Det går att redigera, förhandsvisa och spara
-(commit) [sidan](./gruppkontrakt.md) på GitHub direkt i din webbläsare.
-
-**INFO:** För att lärarna på kursen skall kunna följa och bedöma era
-arbetsinsatser är det viktigt att vi vet vem som är vem vid till exempel
-muntliga presentationer och andra möten.
-
-**TODO:** Tag foton av alla medlemmar i gruppen. Varje foto skall tydligt visa
- personen framifrån från axlarna och uppåt. Spara bilderna i mappen
- `meta/images/`. Fyll sedan i tabellen nedan. Tabellen skall vara sorterad på
- förnamn. Fältet **Förnamn** skall länka till avsnittet med mer detaljer för
- respektive medlem. I tabellen skall alla bilder ha samma bredd.
-
-**INFO:** För sådant som inte går att uttrycka med den variant av Markdown som
-GitHub använder går det bra att använda HTML istället. Till exempel går det att
-använda en `<img src="..." width="180"/>` tag för att sätta bredden på en bild
-till `180` pixlar.
-
-**INFO:** Om ni inte vill bråka med syntaxen för tabeller i Markdown går det bra
- att byta ut hela tabellen mot en HTML-tabell.
-
-**INFO:** För att länka till en rubrik på formen `En rubrik med åäö` använd
-ankaret `#en-rubrik-med-åäö`.
-
 Bild | Förnamn | Efternamn | Personnummer | Användarnamn (GitHub)
 -----------------------------------------|-----------------------------|-----------|--------------|----------------------
 <img src="images/4.jpeg" width="180"/> | [Agnes](#Agnes-Abrahamsson) | Abrahamsson | 961002-2981 | `agnesabrahamsson`
@@ -210,11 +182,3 @@ sidor även ges möjlighet att utveckla följande färdigheter, till exempel:
 - samarbete
 - ledarskap
 - rapportskrivande
-
-
-
-## Färdigställ
-
-- Tag bort alla stycken markerade med **TODO** och **INFO**.
-- Tag bort avsnittet Anders Andersson.
-- Tag bort hela detta avsnitt, dvs tag bort avsnittet **Färdigställ**.
