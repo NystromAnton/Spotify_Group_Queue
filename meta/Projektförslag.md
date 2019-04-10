@@ -8,7 +8,7 @@ Har du någonsin varit på en tillställning där det spelas riktigt dålig och 
 Vi vill göra det enklare för människor att delta, bestämma och föra en talan om vilken musik som ska spelas på fest och andra events. PartyZone ger möjligheten att öppna upp värdens Spotify kö för alla, så att gästerna kan köa musik från sina devices. 
 För att förverkliga detta ska vi utveckla en webb-app som använder sig av Spotify's API, antingen deras android SDK eller om vi använder deras web API i en webbapp.
 
-#### Här lägger vi vår pitch
+#### Pitch
 Har du någonsin varit på en tillställning där det spelas riktigt dålig och osammanhängande musik? Där det är någon som har monopol på högtalaren och inte köar låtar som föreslås? Kanske är du på fest och vill föreslå en låt men vågar inte?
 Vi vill göra det enklare för människor att delta, bestämma och föra en talan om vilken musik som ska spelas på fest och andra events. PartyZone ger möjligheten att öppna upp värdens Spotify kö för alla, så att gästerna kan köa musik från sina devices. 
 För att förverkliga detta ska vi utveckla en webb-app som använder sig av Spotify's API, antingen deras android SDK eller om vi använder deras web API i en webbapp.
