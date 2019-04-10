@@ -1,5 +1,6 @@
 # PartyZone
 
+
 ### Problem
 Har du någonsin varit på en tillställning där det spelas riktigt dålig och osammanhängande musik? Där det är någon som har monopol på högtalaren och inte köar låtar som föreslås? Kanske är du på fest och vill föreslå en låt men vågar inte?
 
@@ -15,9 +16,13 @@ Vi kommer främst försöka göra en fungerande app. Men utvecklingar som vi tä
 - Regler om vem som ansluta
 - Kunna spela låtar från andra plattformar än spotify, t.ex. SoundCloud
 
+### Lärdomar och utmaningar
+
 ### Hur är projektet kopplat till kursen och temat?
 #### Tema: "Smarta och hållbara staden"
 Enligt folkhälsomyndigheten är ett socialt hållbart samhälle ett samhälle som bidrar till att alla människor är inkluderade. Detta har vi valt att fokusera på och genom vår app kommer flera människor bli inkluderade och detta kommer att bidra till ett mer demokratiskt umgänge. 
 En smart stad är för oss en digtaliserad stad där olika plattformar och applikationer hjälper oss att leva och att utvecklas som samhälle. Smarta appar som förenklar vardagen är en stor del av dagens apputvecklingsidéer och vår app kommer också att underlätta och förenkla vardagen. Detta genom en lösning på ett problem som ofta uppstår, och genom en app som är lätt att använda. 
+
+### Tidsplanering
 
 
