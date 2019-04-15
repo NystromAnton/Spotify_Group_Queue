@@ -15,13 +15,40 @@ formatet
 
 ## Kom igång
 
-**TODO:** Lägg till kortfattade instruktioner som beskriver hur projektet byggs
-(kompileras eller liknande), testas (automatiska tester) och startas. Lägg gärna
-till lämpliga underrubriker.
+För att komma igång med projektet krävs följande förkunskaps krav:
+
+**Mac**
+__Node__
+brew install node
+
+__Watchmen__
+npm install watchmen
+
+__React Native__
+npm install -g react-native-cli
+
+__Android SDK__
+https://developer.android.com/studio/
+
+or you can go with:
+**EXPO**
+npm install -g expo-cli
+
+Then run the following commands to create a new React Native project called "AwesomeProject":
+
+expo init AwesomeProject
+
+cd AwesomeProject
+npm start # you can also use: expo start
+
+
+
 
 ## Katalogstruktur
 
-**TODO:** Lägg till en kortfattad beskrivning över katalogstrukturen.
+**TODO:** 
+**AwesomeProject**
+- Huvud-applikationen 
 
 **meta**
 
