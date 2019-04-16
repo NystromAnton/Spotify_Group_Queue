@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "AwesomeProject",
-    "slug": "AwesomeProject",
+    "name": "PartyZone",
+    "slug": "partyzone",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
@@ -24,6 +24,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "Democratize music queues for social events.",
+    "githubUrl": "https://github.com/uu-os-2019/dsp-hallon"
   }
 }
