@@ -14,26 +14,32 @@ formatet
 ## Kom igång
 
 För att komma igång med projektet krävs följande förkunskaps krav:
+Ladda ner projektet:
 
-**Mac**
+```
+git clone https://github.com/uu-os-2019/dsp-hallon.git
+```
 
+**Linux**
 __Node__
+```
 brew install node
-
-__Watchmen__
-npm install watchmen
+```
 
 __React Native__
+```
 npm install -g react-native-cli
+```
 
-__Android Studio__
+(Optional) __Android Studio__
 Android SDK https://developer.android.com/studio/
 
-**EXPO**
-```npm install -g expo-cli
-git clone https://github.com/uu-os-2019/dsp-hallon.git
+__EXPO__
+```
+npm install -g expo-cli
 cd dsp-hallon
 cd AwesomeProject
+npm install
 npm start
 ```
 # you can also use: expo start
