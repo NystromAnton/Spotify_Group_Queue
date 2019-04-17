@@ -7,7 +7,7 @@ echo 2...
 sleep 1
 echo 1...
 sleep 1
-kill -9 $(lsof -t -i :8888)
+kill -9 $(lsof -t -i :8888) 2>/dev/null 
 echo "Port 8888 free"
 echo "Starting server..."
 appKey=7f7b041e7c2f4c49996c8ada2c641ca7 appSecret=97028381128a462aa7ee9b439b74771f callbackURL="https://auth.expo.io/@rednaxela5950/spotify-react-native" node AwesomeProject/server.js &
