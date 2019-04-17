@@ -38,6 +38,7 @@ npm start
 ```
 you can also use: expo start
 
+
 **Mac**
 - Ladda ner appen "expo client" i app store
 - Logga in på ditt konto på snack.expo.io 
