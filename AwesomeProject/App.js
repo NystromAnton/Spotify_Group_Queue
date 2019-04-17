@@ -26,7 +26,7 @@ export default class App extends React.Component {
     console.log(redirectUrl);
 
     let result = await AuthSession.startAsync({
-      authUrl: "http://130.243.237.11:8888/auth/spotify"
+      authUrl: "http://pomfy.asuscomm.com:8888/auth/spotify"
     });
 
     if (result.type !== "success") {
@@ -35,7 +35,7 @@ export default class App extends React.Component {
     }
 
     let userInfoResponse = await fetch(
-      `http://130.243.237.11:8888/callback?code=${result.params.code}`
+      `http://pomfy.asuscomm.com:8888/callback?code=${result.params.code}`
     );
     const userInfo = await userInfoResponse.json();
     //console.log(userInfo)
