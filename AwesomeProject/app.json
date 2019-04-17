@@ -25,6 +25,7 @@
     "ios": {
       "supportsTablet": true
     },
-    "description": ""
+    "description": "Democratize music queues for social events.",
+    "githubUrl": "https://github.com/uu-os-2019/dsp-hallon"
   }
 }
