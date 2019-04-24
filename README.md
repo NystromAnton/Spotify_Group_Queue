@@ -36,7 +36,8 @@ cd dsp-hallon
 cd AwesomeProject
 npm start
 ```
-# you can also use: expo start
+you can also use: expo start
+
 
 **Mac**
 - Ladda ner appen "expo client" i app store
