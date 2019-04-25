@@ -1,0 +1,19 @@
+name: spotify_playback
+description: Flutter plugin for using the Spotify Playback library in Flutter. Uses the official Spotify Playback libary.
+version: 0.0.8
+author: Joran Dob <joran998@gmail.com>
+homepage: https://github.com/Joran-Dob/spotify-playback-flutter
+issue_tracker: https://github.com/Joran-Dob/spotify-playback-flutter/issues
+
+environment:
+  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+# The following section is specific to Flutter.
+flutter:
+  plugin:
+    androidPackage: io.feesie.spotify.playback
+    pluginClass: SpotifyPlaybackPlugin
