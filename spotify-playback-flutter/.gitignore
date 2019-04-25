@@ -7,6 +7,4 @@ pubspec.lock
 
 build/
 
-example/lib/credentials.dart
-
 .idea
