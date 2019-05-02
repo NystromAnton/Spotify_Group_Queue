@@ -1,50 +1,163 @@
 # PartyZone - Grupp Hallon
+  
+  
+  
+  
+  
+[![](https://img.shields.io/badge/pub-v0.0.8-brightgreen.svg)](https://pub.dartlang.org/packages/spotify_playback) [![](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/uu-os-2019/dsp-hallon/blob/master/LICENSE)
+   
+  
+  Projektarbete på kursen Datorsystem med projekt (1DT003) våren 2019, Uppsala universitet.
 
-Projektarbete på kursen Datorsystem med projekt (1DT003) våren 2019, Uppsala universitet.
+Spotify Playback Plugin.
+ 
+**This project utilizes the following frameworks and APIs and we would like to thank them**
+[spotify-playback-flutter](https://github.com/qreate/spotify-playback-flutter/)  
+[spotify-app-remote-release](https://github.com/spotify/android-sdk/releases/tag/v0.6.1-appremote_v1.1.0-auth)  
+[spotify-auth-release](https://github.com/spotify/android-sdk/releases/tag/v0.6.1-appremote_v1.1.0-auth)   
+  
 
-**INFO:** Detta dokument är skrivet i
-formatet
-[Markdown](https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/).
+  
 
-**INFO:** Det går att redigera, förhandsvisa och spara
-(commit) [sidan](./README.md) på GitHub direkt i din webbläsare.
+## Features
+* Play (track / album / playlist)
+* Resume / pause
+* Queue
+* Playback position
+* Seek
+* Seek to relative position
+* Play Next
+* Play Previous
+* Repeat 
+* Shuffle 
+* Get image
+* Image link to URI
 
-**TODO:** Lägg till en kort beskrivning av projektet.
+## Installation
+**`IMPORTANT:` Make sure you have the Spotify app installed and that you are logged in or your test device!**
 
-## Kom igång
+First, add `spotify_playback` as a dependency in your `pubspec.yaml` file. 
 
-För att komma igång med projektet krävs följande förkunskaps krav:
+Afterwards, download the Spotify Android SDK [here](https://github.com/spotify/android-sdk/releases/tag/v0.6.1-appremote_v1.1.0-auth) and move the spotify-app-remote-release-x.x.x.aar file to `android/app/libs/` in your project.
 
-**Mac**
+Then initialize the spotify playback sdk like this 
 
-__Node__
-brew install node
+```dart
+@override
+  void initState() {
+    super.initState();
+    initConnector();
+  }
 
-__Watchmen__
-npm install watchmen
+  /// Initialize the spotify playback sdk, by calling spotifyConnect
+  Future<void> initConnector() async {
+    try {
+      await SpotifyPlayback.spotifyConnect(clientId: "", redirectUrl: "").then(
+          (connected) {
+        if (!mounted) return;
+        // If the method call is successful, update the state to reflect this change
+        setState(() {
+          _connectedToSpotify = connected;
+        });
+      }, onError: (error) {
+        // If the method call trows an error, print the error to see what went wrong
+        print(error);
+      });
+    } on PlatformException {
+      print('Failed to connect.');
+    }
+  }
+``` 
 
-__React Native__
-npm install -g react-native-cli
+After this you can use all the available methods
 
-__Android Studio__
-Android SDK https://developer.android.com/studio/
+## Available methods 
+| Method        | description           | parameters  | notes |
+| ------------- |:-------------:| -----:|-----:|
+| spotifyConnect      | Initilizes the spotify playback sdk | clientId, redirectUrl ||
+| play      | Play's an spotify track, album or playlist | spotify uri ||
+| pause      | Pause's the currently playing track      |    ||
+| resume |  Resumes the currently paused track      |     ||
+| queue |  Adds an track / playlist / album to the queue     |   spotify uri  ||
+| skipNext      | Play's the next track | ||
+| skipPrevious      | Play's the previous track |  ||
+| seekTo |  Seeks to the passed time     |  time(mS)   ||
+|seekToRelativePosition|Seeks to relative position|+-time(mS)||
+| toggleShuffle | Toggle shuffle options    |     ||
+| toggleShuffle | Toggle Repeat options    |     ||
+| getPlaybackPosition | Get's the current tracks playback position       |    ||
+| getImage | Gets a Uint8List encoded image(memoryImage)       |  imageUri, quality, size  | [![](https://img.shields.io/badge/WARNING-23-orange.svg)](https://github.com/qreate/spotify-playback-flutter/issues/23)
+| imageLinkToURi | Takes an image url and returns image uri(for get image)    |  imageLink  ||
+| getAuthToken | Gets the authToken by using the redirect url, client id       |  clientId, redirectUrl | [![](https://img.shields.io/badge/WARNING-WIP-orange.svg)](https://github.com/qreate/spotify-playback-flutter/pull/28)
 
-**EXPO**
-```npm install -g expo-cli
-git clone https://github.com/uu-os-2019/dsp-hallon.git
-cd dsp-hallon
-cd AwesomeProject
-npm start
+## Example
+
+Demonstrates how to use the spotify_playback plugin.
+
+See the [example documentation](example/README.md) for more information.
+
+
+## Function examples
+### GetImage   
+[![](https://img.shields.io/badge/WARNING-23-orange.svg)](https://github.com/qreate/spotify-playback-flutter/issues/23)
+Get image accepts the following parameters:
+* URI, the spotify image uri - string
+* Quality, the quality the image should be provided in - int 0-100
+* Size, the spotify image size can be one of the following
+  * ImageDimension.THUMBNAIL = 144px
+  * ImageDimension.X_SMALL = 240px
+  * ImageDimension.SMALL = 360px
+  * ImageDimension.MEDIUM = 480px
+  * ImageDimension.LARGE = 720px
+```dart
+//You can provide an image uri
+SpotifyPlayback.getImage(uri: "spotify:image:3269971d34d3f17f16efc2dfa95e302cc961a36c", quality: 100, size: 360);
+
+//Or you can provide an url returned webAPI
+SpotifyPlayback.getImage(uri: SpotifyPlayback.imageLinkToURi("https://i.scdn.co/image/3269971d34d3f17f16efc2dfa95e302cc961a36c"), quality: 100, size:360);
+
+//Theese both return a Uint8List encoded image.
+//You can then use the Image.memory() to display the image
+Image.memory(yourUint8ListImageHere)
+
 ```
-you can also use: expo start
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
+
+## Special Thanks
+ - Alexander Méhes | [BMXsanko](https://github.com/BMXsanko)
+
+## Contributing
+
+Feel free to contribute by opening issues and/or pull requests. Your feedback is very welcome!
+
+## License
+
+MIT License
+
+Copyright (c) [2019] [Joran Dob]
+Copyright (c) [2019] [QREATE]
 
 
-**Mac**
-- Ladda ner appen "expo client" i app store
-- Logga in på ditt konto på snack.expo.io 
-- Öppna projektet och SPARA det på din dator
-- Gå in på din mobila enhet och gå in på "projekt" och klicka på det önskade projektet
-- Nu kan du se appen!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Katalogstruktur
 
