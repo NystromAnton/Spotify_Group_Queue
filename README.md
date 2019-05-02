@@ -48,6 +48,13 @@ Spotify Playback Plugin.
 * Ha Spotify installerad på telefonen
 
 
+## Bygga och köra 
+**Se till att stegen för `Installation` följts!**
+- ``` gitclone https://github.com/uu-os-2019/dsp-hallon.git ``` 
+- ``` cd dsp-hallon/spotify-playback-flutter/example/ ```
+- Koppla in telefonen i utvecklarläge eller starta en emulerad Android telefon med Spotify installerad
+- ``` flutter doctor ``` För att kolla att Flutter hittar telefonen och att allt funkar 
+- ```flutter run ```
 
 
 [comment]: <> (hej)
@@ -74,7 +81,7 @@ Spotify Playback Plugin.
 
 **TODO:** 
 **AwesomeProject**
-- Huvud-applikationen 
+- Huvudapplikationen 
 
 **meta**
 - gruppkontrakt
