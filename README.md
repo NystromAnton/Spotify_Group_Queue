@@ -44,13 +44,16 @@ Spotify Playback Plugin.
      keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
      Kopiera ID:t efter SHA1    
      Exempel:    SHA1: 8E:EC:8E:15:4B:2A:9D:3F:1F:9D:96:95:F9:87:69:F2:D9:33:9C:D6
-* Ha SHA1-ID:t insprivet till Spotifys API
+* Ha SHA1-ID:t insprivet till [Spotifys API](https://developer.spotify.com/dashboard/applications) 
+   io.feesie.spotify.playback.example//```8E:EC:8E:15:4B:2A:9D:3F:1F:9D:96:95:F9:87:69:F2:D9:33:9C:D6```     
+   Där ```8E:EC:8E:15:4B:2A:9D:3F:1F:9D:96:95:F9:87:69:F2:D9:33:9C:D6```Är ditt SHA1-ID    
+   
 * Ha Spotify installerad på telefonen
 
 
 ## Bygga och köra 
 **Se till att stegen för `Installation` följts!**
-- ``` gitclone https://github.com/uu-os-2019/dsp-hallon.git ``` 
+- ``` git clone https://github.com/uu-os-2019/dsp-hallon.git ``` 
 - ``` cd dsp-hallon/spotify-playback-flutter/example/ ```
 - Koppla in telefonen i utvecklarläge eller starta en emulerad Android telefon med Spotify installerad
 - ``` flutter doctor ``` För att kolla att Flutter hittar telefonen och att allt funkar 
