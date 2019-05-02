@@ -13,8 +13,8 @@ Spotify Playback Plugin.
  
 **Det här projektet använder sig av följande frameworks och APIer**   
 
-[spotify-playback-flutter](https://github.com/qreate/spotify-playback-flutter/)  [![](https://img.shields.io/badge/pub-v0.0.8-brightgreen.svg)](https://pub.dartlang.org/packages/spotify_playback) 
-[spotify-app-remote-release](https://github.com/spotify/android-sdk/releases/tag/v0.6.1-appremote_v1.1.0-auth)  
+[spotify-playback-flutter](https://github.com/qreate/spotify-playback-flutter/)  [![](https://img.shields.io/badge/pub-v0.0.8-brightgreen.svg)](https://pub.dartlang.org/packages/spotify_playback)    
+[spotify-app-remote-release](https://github.com/spotify/android-sdk/releases/tag/v0.6.1-appremote_v1.1.0-auth)   
 [spotify-auth-release](https://github.com/spotify/android-sdk/releases/tag/v0.6.1-appremote_v1.1.0-auth)   
   
 
