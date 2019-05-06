@@ -20,7 +20,7 @@ Spotify Playback Plugin.
 
   
 
-## Implimenterade funktioner
+## Implementerade funktioner
 * Play (track / album / playlist)
 * Resume / pause
 * Queue
