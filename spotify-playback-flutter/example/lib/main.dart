@@ -258,6 +258,10 @@ class _MyAppState extends State<MyApp> {
               Wrap(
                 children: <Widget>[
                   RaisedButton(
+                    onPressed: () => getCurrentlyPlayingTrack(),
+                    child: Text("Current Track"),
+                  ),
+                  RaisedButton(
                     onPressed: () =>
                         play("spotify:track:7zFXmv6vqI4qOt4yGf3jYZ"),
                     child: Text("Play"),
