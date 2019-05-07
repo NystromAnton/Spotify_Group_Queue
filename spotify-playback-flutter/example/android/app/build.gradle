@@ -29,6 +29,9 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 android {
   compileSdkVersion 27
 
+  defaultConfig {
+    multiDexEnabled true
+  }
   sourceSets {
     main.java.srcDirs += 'src/main/kotlin'
   }
@@ -69,4 +72,4 @@ dependencies {
   androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
 
-apply plugin: 'com.google.gms:google-services'
+apply plugin: 'com.google.gms.google-services'
