@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'placeholder_widget.dart';
+import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -44,7 +44,7 @@ class _HomeState extends State<Home> {
         fixedColor: Colors.orange,
         iconSize: 40.0,
       ),
-     /* floatingActionButton: FloatingActionButton(
+      /* floatingActionButton: FloatingActionButton(
         onPressed: null,
         backgroundColor: Colors.orange,
         child: Icon(Icons.android),

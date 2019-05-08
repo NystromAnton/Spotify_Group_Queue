@@ -1,4 +1,4 @@
-package hallon.hallon_house_page_test;
+package hallon.design_house_page;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
