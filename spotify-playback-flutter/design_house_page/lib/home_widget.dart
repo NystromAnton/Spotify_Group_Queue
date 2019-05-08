@@ -11,7 +11,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
   final List<Widget> _children = [
-    PlaceholderWidget(Colors.white),
+    // Tillfälliga widget tills vi fixat sidorna
+    PlaceholderWidget(Colors.white, ),
     PlaceholderWidget(Colors.black),
     PlaceholderWidget(Colors.yellow)
   ];
