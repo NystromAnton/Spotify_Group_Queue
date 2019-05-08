@@ -63,6 +63,15 @@ class MyHomePage extends StatelessWidget {
           });
         });
       },
+      onLongPress: () {
+        Firestore.instance.runTransaction((transaction) async {
+          DocumentSnapshot freshSnap =
+          await transaction.get(document.reference);
+          await transaction.update(freshSnap.reference, {
+            'votes': freshSnap['votes'] - 1,
+          });
+        });
+      },
     );
   }
 
@@ -83,6 +92,14 @@ class MyHomePage extends StatelessWidget {
                   _buildListItem(context, snapshot.data.documents[index]),
             );
           }),
+          floatingActionButton: new FloatingActionButton(
+              onPressed: () {
+                Firestore.instance.collection('rooms/ZzqG0nrtavCSfv2uxB53/songs').document()
+                    .setData({'id' : "E-Type - Like a Child", 'votes' : 0});
+              },
+              tooltip: 'New Document',
+              child: new Icon(Icons.add),
+          ),
     );
   }
 }
