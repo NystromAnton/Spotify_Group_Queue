@@ -1,6 +1,8 @@
 import 'placeholder_widget.dart';
 import 'package:flutter/material.dart';
 
+import './housepage.dart';
+
 class Home extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -12,7 +14,7 @@ class _HomeState extends State<Home> {
   int _currentIndex = 0;
   final List<Widget> _children = [
     // Tillfälliga widget tills vi fixat sidorna
-    PlaceholderWidget(Colors.white, ),
+    HousePage(),
     PlaceholderWidget(Colors.black),
     PlaceholderWidget(Colors.yellow)
   ];
@@ -36,7 +38,7 @@ class _HomeState extends State<Home> {
                     new Icon(Icons.home, color: Theme.of(context).buttonColor),
                 activeIcon: Icon(Icons.home),
                 title: new Text('Home',
-                    style: TextStyle(
+                    style: TextStyle( // Change the text color
                         color: _currentIndex == 0
                             ? Colors.white
                             : Theme.of(context).buttonColor)),
@@ -46,7 +48,7 @@ class _HomeState extends State<Home> {
                     color: Theme.of(context).buttonColor),
                 activeIcon: Icon(Icons.search),
                 title: new Text('Search',
-                    style: TextStyle(
+                    style: TextStyle( // Change the text color
                         color: _currentIndex == 1
                             ? Colors.white
                             : Theme.of(context).buttonColor)),
@@ -56,7 +58,7 @@ class _HomeState extends State<Home> {
                       color: Theme.of(context).buttonColor),
                   activeIcon: Icon(Icons.queue_music),
                   title: Text('Queue music',
-                      style: TextStyle(
+                      style: TextStyle( // Change the text color
                           color: _currentIndex == 2
                               ? Colors.white
                               : Theme.of(context).buttonColor)))
