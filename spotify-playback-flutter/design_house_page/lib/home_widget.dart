@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import './housepage.dart';
 import './queuepage.dart';
+import './searchpage.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -14,9 +15,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
   final List<Widget> _children = [
-    // Tillfälliga widget tills vi fixat sidorna
     HousePage(),
-    PlaceholderWidget(Colors.black),
+    SearchPage(),
     QueuePage()
   ];
   @override
