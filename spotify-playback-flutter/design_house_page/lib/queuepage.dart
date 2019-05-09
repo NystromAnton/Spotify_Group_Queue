@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_slidable/flutter_slidable.dart';
 
-
 class QueuePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -15,22 +14,17 @@ class _QueueState extends State<QueuePage> {
   String _selectedGenre;
   int _maxQSize;
   int _songsPerPerson; */
-  List<String> data = ["låt1", "låt2","låt3","låt4","låt5","låt6"]
+  List<String> data = ["låt1", "låt2", "låt3", "låt4", "låt5", "låt6"];
 
   @override
   Widget build(BuildContext context) {
-    Expanded(
-        child: ListView.builder(
-          itemCount: data.length,
-          itemBuilder: (context, i){
-            return Text(data[i]);
-          }
-    )
-              );
+    return ListView.builder(
+        itemCount: data.length,
+        itemBuilder: (context, i) {
+          return Text(data[i]);
+        });
   }
 }
-
-
 
 /*children: <Widget>[
          // Theme(
