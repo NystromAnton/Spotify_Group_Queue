@@ -20,7 +20,7 @@ class App extends StatelessWidget {
               display1: TextStyle( // House page text
                 fontSize: 20.0,
                 color: Colors.grey[500]),
-              display2: TextStyle( // House page input text
+              display2: TextStyle( 
                 fontSize: 24.0,
                 color: Colors.grey[300],
               ),
