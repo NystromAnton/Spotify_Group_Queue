@@ -2,6 +2,7 @@ import 'placeholder_widget.dart';
 import 'package:flutter/material.dart';
 
 import './housepage.dart';
+import './queuepage.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _HomeState extends State<Home> {
     // Tillfälliga widget tills vi fixat sidorna
     HousePage(),
     PlaceholderWidget(Colors.black),
-    PlaceholderWidget(Colors.yellow)
+    QueuePage()
   ];
   @override
   Widget build(BuildContext context) {
@@ -44,8 +45,7 @@ class _HomeState extends State<Home> {
                             : Theme.of(context).buttonColor)),
               ),
               BottomNavigationBarItem(
-                icon: new Icon(Icons.search,
-                    color: Theme.of(context).buttonColor),
+                icon: new Icon(Icons.search, color: Theme.of(context).buttonColor),
                 activeIcon: Icon(Icons.search),
                 title: new Text('Search',
                     style: TextStyle( // Change the text color
@@ -54,8 +54,7 @@ class _HomeState extends State<Home> {
                             : Theme.of(context).buttonColor)),
               ),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.queue_music,
-                      color: Theme.of(context).buttonColor),
+                  icon: Icon(Icons.queue_music, color: Theme.of(context).buttonColor),
                   activeIcon: Icon(Icons.queue_music),
                   title: Text('Queue music',
                       style: TextStyle( // Change the text color
