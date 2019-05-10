@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class HousePage extends StatelessWidget {
+
+  // Se TODO Skrolla längst ned
+
   final Function setExplicitAllowed;
   final Function getExplicitAllowed;
   final Function setVotingEnabled;
@@ -27,13 +30,11 @@ class HousePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
-      body: ListView(
-        children: <Widget>[
+        backgroundColor: Theme.of(context).backgroundColor,
+        body: ListView(children: <Widget>[
           Theme(
               data: Theme.of(context),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.only(top: 20.0),
@@ -97,7 +98,7 @@ class HousePage extends StatelessWidget {
                           onChanged: (String input) {
                             // Ändrar Max Köstorlek, defaultar till 1000
                             int parsed = int.parse(input);
-                            parsed is int
+                            parsed is int // Ett basic försök till error handling, osäker på om det är tillräckligt
                                 ? setMaxQSize(parsed)
                                 : setMaxQSize(1000);
                           },
@@ -106,6 +107,7 @@ class HousePage extends StatelessWidget {
                             labelText: 'Max songs in queue (' +
                                 getMaxQSize().toString() +
                                 ')',
+                            hasFloatingPlaceholder: false,
                             fillColor: Theme.of(context).buttonColor,
                             border: new OutlineInputBorder(
                               borderRadius: new BorderRadius.circular(15.0),
@@ -115,7 +117,6 @@ class HousePage extends StatelessWidget {
                           textAlign: TextAlign.center,
                           maxLength: 5,
                           style: Theme.of(context).textTheme.display1,
-                          //controller: TextEditingController(text: "30"),
                           keyboardType: TextInputType.number,
                         ),
                       ),
@@ -139,18 +140,16 @@ class HousePage extends StatelessWidget {
                           onChanged: (String input) {
                             // Ändrar max låtar per person, defaultar till 100
                             int parsed = int.parse(input);
-
-                            parsed is int
+                            parsed is int // Ett basic försök till error handling, osäker på om det är tillräckligt
                                 ? setSongsPerPerson(parsed)
                                 : setSongsPerPerson(100);
-
-                            //print("Songs per person: " + _songsPerPerson.toString());
                           },
                           decoration: InputDecoration(
                             filled: true,
                             labelText: 'Max songs per person (' +
                                 getSongsPerPerson().toString() +
                                 ')',
+                            hasFloatingPlaceholder: false,
                             fillColor: Theme.of(context).buttonColor,
                             border: new OutlineInputBorder(
                               borderRadius: new BorderRadius.circular(15.0),
@@ -160,7 +159,6 @@ class HousePage extends StatelessWidget {
                           textAlign: TextAlign.center,
                           maxLength: 5,
                           style: Theme.of(context).textTheme.display1,
-                          //controller: TextEditingController(text: "30"),
                           keyboardType: TextInputType.number,
                         ),
                       ),
@@ -169,10 +167,27 @@ class HousePage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  /* Save knapp för att användaren ska känna att options parametrar
+                  blivit sparade. 
+                  TODO: Implementera att parametrarna sparas i ett Form ist för direkt
+                  när man skriver (onChange) som det är nu, så när man trycker på save
+                  refreshas sidan och ens parametrar är sparade. 
+                  EXTENDED TODO: Save knappen triggar ett servercall som notifierar
+                  backend/rummedlemmar om de nya reglerna*/
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      RaisedButton(
+                        child: Text("Save"),
+                        onPressed: () {
+                          
+                        },
+                      )
+                    ],
+                  )
                 ],
               ))
-        ],
-      ),
-    );
+        ]));
   }
 }

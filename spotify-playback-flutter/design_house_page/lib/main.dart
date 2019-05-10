@@ -16,6 +16,7 @@ class App extends StatelessWidget {
           canvasColor: Colors.grey[900], // Nav bar background
           toggleableActiveColor: Colors.green[600],
           buttonColor: Colors.grey[600], // Nav bar buttons
+
           textTheme: TextTheme(
               display1: TextStyle( // House page text
                 fontSize: 20.0,
