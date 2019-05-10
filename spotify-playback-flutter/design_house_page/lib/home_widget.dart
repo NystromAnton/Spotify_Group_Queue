@@ -1,6 +1,7 @@
 import 'placeholder_widget.dart';
 import 'package:flutter/material.dart';
 
+import './loginpage.dart';
 import './housepage.dart';
 import './queuepage.dart';
 import './searchpage.dart';
@@ -19,6 +20,7 @@ class _HomeState extends State<Home> {
     SearchPage(),
     QueuePage()
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

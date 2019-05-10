@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home_widget.dart';
+import 'loginpage.dart';
 
 void main() => runApp(App());
 
@@ -25,7 +26,8 @@ class App extends StatelessWidget {
                 color: Colors.grey[300],
               ),
               button: TextStyle(color: Colors.white))),
-      home: Home(),
+      home: LoginPage(),
+      //home: Home(),
     );
   }
 }
