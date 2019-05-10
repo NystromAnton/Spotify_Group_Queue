@@ -1,8 +1,8 @@
-import 'placeholder_widget.dart';
 import 'package:flutter/material.dart';
 
 import './housepage.dart';
 import './queuepage.dart';
+import './searchpage.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -86,7 +86,7 @@ class _HomeState extends State<Home> {
         _setMaxPerPerson,
         _getMaxPerPerson);
 
-    PlaceholderWidget searchPage = PlaceholderWidget(Colors.black);
+    SearchPage searchPage = SearchPage();
 
     QueuePage queuePage = QueuePage();
 
