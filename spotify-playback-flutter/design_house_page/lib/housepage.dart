@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
 
-class HousePage extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return _HouseState();
-  }
-}
+class HousePage extends StatelessWidget {
+  final Function setExplicitAllowed;
+  final Function getExplicitAllowed;
+  final Function setVotingEnabled;
+  final Function getVotingEnabled;
+  final Function setSelectedGenre;
+  final Function getSelectedGenre;
+  final Function setMaxQSize;
+  final Function getMaxQSize;
+  final Function setSongsPerPerson;
+  final Function getSongsPerPerson;
 
-class _HouseState extends State<HousePage> {
-  bool explicitAllowed;
-  bool votingEnabled;
-  String selectedGenre;
-  int maxQSize;
-  int songsPerPerson;
-
-  _HouseState({this.explicitAllowed = true, this.votingEnabled = true, this.selectedGenre, 
-   this.maxQSize = 1000, this.songsPerPerson = 100});
+  HousePage(
+      this.setExplicitAllowed,
+      this.getExplicitAllowed,
+      this.setVotingEnabled,
+      this.getVotingEnabled,
+      this.setSelectedGenre,
+      this.getSelectedGenre,
+      this.setMaxQSize,
+      this.getMaxQSize,
+      this.setSongsPerPerson,
+      this.getSongsPerPerson);
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +38,7 @@ class _HouseState extends State<HousePage> {
                   Padding(
                     padding: EdgeInsets.only(top: 20.0),
                   ),
+                  // SELECT GENRE
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
@@ -44,6 +52,7 @@ class _HouseState extends State<HousePage> {
                       )
                     ],
                   ),
+                  // TOGGLE EXPLICIT
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
@@ -53,12 +62,13 @@ class _HouseState extends State<HousePage> {
                         activeColor: Theme.of(context).toggleableActiveColor,
                         inactiveTrackColor: Theme.of(context).buttonColor,
                         onChanged: (bool value) {
-                          value = !value;
+                          setExplicitAllowed(value);
                         },
-                        value: false,
+                        value: getExplicitAllowed(),
                       ),
                     ],
                   ),
+                  // TOGGLE VOTING
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
@@ -68,12 +78,13 @@ class _HouseState extends State<HousePage> {
                         activeColor: Theme.of(context).toggleableActiveColor,
                         inactiveTrackColor: Theme.of(context).buttonColor,
                         onChanged: (bool value) {
-                          value = !value;
+                          setVotingEnabled(value);
                         },
-                        value: false,
+                        value: getVotingEnabled(),
                       ),
                     ],
                   ),
+                  // MAX SONGS IN QUEUE
                   Padding(padding: EdgeInsets.only(top: 25.0)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -83,16 +94,18 @@ class _HouseState extends State<HousePage> {
                       ),
                       Flexible(
                         child: TextField(
-                          onChanged: (String input) { // Ändrar Max Köstorlek, defaultar till 1000
+                          onChanged: (String input) {
+                            // Ändrar Max Köstorlek, defaultar till 1000
                             int parsed = int.parse(input);
                             parsed is int
-                                ? maxQSize = parsed
-                                : maxQSize = 1000;
-                            //print("Max queue size: " + _maxQSize.toString());
+                                ? setMaxQSize(parsed)
+                                : setMaxQSize(1000);
                           },
                           decoration: InputDecoration(
                             filled: true,
-                            labelText: 'Max songs in queue',
+                            labelText: 'Max songs in queue (' +
+                                getMaxQSize().toString() +
+                                ')',
                             fillColor: Theme.of(context).buttonColor,
                             border: new OutlineInputBorder(
                               borderRadius: new BorderRadius.circular(15.0),
@@ -123,16 +136,21 @@ class _HouseState extends State<HousePage> {
                       ),
                       Flexible(
                         child: TextField(
-                          onChanged: (String input) { // Ändrar max låtar per person, defaultar till 100
+                          onChanged: (String input) {
+                            // Ändrar max låtar per person, defaultar till 100
                             int parsed = int.parse(input);
+
                             parsed is int
-                                ? songsPerPerson = parsed
-                                : songsPerPerson = 100;
+                                ? setSongsPerPerson(parsed)
+                                : setSongsPerPerson(100);
+
                             //print("Songs per person: " + _songsPerPerson.toString());
                           },
                           decoration: InputDecoration(
                             filled: true,
-                            labelText: 'Max songs per person',
+                            labelText: 'Max songs per person (' +
+                                getSongsPerPerson().toString() +
+                                ')',
                             fillColor: Theme.of(context).buttonColor,
                             border: new OutlineInputBorder(
                               borderRadius: new BorderRadius.circular(15.0),
