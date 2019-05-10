@@ -13,11 +13,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final List<Widget> _children = [
-    HousePage(),
-    SearchPage(),
-    QueuePage()
-  ];
+  final List<Widget> _children = [];
   
   int _currentIndex = 0;
 
