@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import './loginpage.dart';
 import './housepage.dart';
 import './queuepage.dart';
 import './searchpage.dart';
@@ -12,9 +13,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final List<Widget> _children = [];
-
+  final List<Widget> _children = [
+    HousePage(),
+    SearchPage(),
+    QueuePage()
+  ];
+  
   int _currentIndex = 0;
+
   bool _votingEnabled = true;
   bool _explicitAllowed = true;
   String _selectedGenre;
@@ -71,6 +77,7 @@ class _HomeState extends State<Home> {
     print("MaxQueueSize: " + _maxQSize.toString());
     print("Songs per person: " + _songsPerPerson.toString());
   }
+
 
   @override
   Widget build(BuildContext context) {
