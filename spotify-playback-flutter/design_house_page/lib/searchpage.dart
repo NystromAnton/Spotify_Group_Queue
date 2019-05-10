@@ -22,18 +22,22 @@ class _SearchState extends State<SearchPage> {
                 children: <Widget>[
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      Flexible(
-                          child:TextField(
-                               // controller: TextEditingController(text: " 🔍Search"),
-                              style:
-                                    TextStyle(color: Colors.white, fontSize: 20, fontStyle: FontStyle.italic),
-                              decoration:
-                                    InputDecoration(
-                                        hintText: '🔍Search',
-                                        fillColor: Colors.white,
-                                        contentPadding: EdgeInsets.symmetric(horizontal: 45.0)
-                                )//InputDecoration
+                    children: <Widget>[Padding(padding: EdgeInsets.only(left:15.0)),Flexible(
+                          child: TextField(
+                              style: Theme.of(context).textTheme.display1,
+                              decoration: InputDecoration( //TODO: Fixa så att förstoringsglaset är en icon.
+                                      icon: Icon(Icons.search, color: Theme.of(context).buttonColor, size: 50.0,),
+                                      filled: true,
+                                      labelText: '🔍Search',
+                                      fillColor: Colors.white,
+                                      contentPadding: EdgeInsets.all(10.0),
+                                      border: new OutlineInputBorder(
+                                          borderRadius: new BorderRadius.circular(15.0),
+                                          borderSide: new BorderSide(),
+
+                                      )//border
+
+                                ),//InputDecoration
                                 ) //TextField
                         )//Flexible
                     ]// children: <Widget> #3
