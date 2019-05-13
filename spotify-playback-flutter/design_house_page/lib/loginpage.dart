@@ -45,7 +45,12 @@ class _LoginState extends State<LoginPage> {
                 style: TextStyle(fontSize: 22.0),
               ),
               onPressed: () {
-                _pushApp();
+                /*Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Home()),*/
+                  Navigator.pushReplacementNamed(context, "/home");
+                  //Navigator.pushNamedAndRemoveUntil("/home", f(Route<dynamic>)->bool);
+                //);
               },
             ),
             SizedBox(
@@ -73,22 +78,6 @@ class _LoginState extends State<LoginPage> {
             )
           ],
         ),
-      ),
-    );
-  }
-
-  void _pushApp() {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (BuildContext context) {
-          return Scaffold(
-            //appBar: AppBar(
-              //title: Image.asset('assets/titelbildensaken.png'),
-              //backgroundColor: Colors.black,
-            //),
-            body: Home(),
-          );
-        },
       ),
     );
   }
