@@ -29,8 +29,11 @@ class App extends StatelessWidget {
                 color: Colors.grey[1000],
               ),
               button: TextStyle(color: Colors.white))),
-      home: LoginPage(),
-      //home: Home(),
+      home: new LoginPage(),
+      routes: {
+        "/home": (_) => new Home(),
+        "/login": (_) => new LoginPage(),
+      }
     );
   }
 }

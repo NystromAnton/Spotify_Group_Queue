@@ -39,6 +39,18 @@ class HousePage extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(top: 20.0),
                   ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      RaisedButton(
+                        onPressed: () {
+                          //Navigator.pop(context);
+                          Navigator.pushReplacementNamed(context, "/login");
+                        },
+                        child: Text("Log out"),
+                      )
+                    ],
+                  ),
                   // SELECT GENRE
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
