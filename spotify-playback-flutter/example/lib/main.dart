@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:spotify_playback/spotify_playback.dart';
 import 'credentials.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 
 
 void main() {
@@ -94,11 +95,21 @@ class MyHomePage extends StatelessWidget {
           }),
           floatingActionButton: new FloatingActionButton(
               onPressed: () {
-                Firestore.instance.collection('rooms/ZzqG0nrtavCSfv2uxB53/songs').document()
-                    .setData({'id' : "E-Type - Like a Child", 'votes' : 0});
+
+                //Firestore.instance.collection('rooms/ZzqG0nrtavCSfv2uxB53/songs').document()
+                  //  .setData({'id' : "E-Type - Like a Child", 'votes' : 0});
+                //debugPrint("hej");
+
+                final HttpsCallable callable  = CloudFunctions.instance.getHttpsCallable(
+                    functionName: "addSong"
+                );
+
+                callable.call({
+                  "id": "Basshunter - GPS",
+                  "votes": 42 });
               },
               tooltip: 'New Document',
-              child: new Icon(Icons.add),
+              child: Icon(Icons.add),
           ),
     );
   }
