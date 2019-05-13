@@ -22,9 +22,9 @@ class App extends StatelessWidget {
               display1: TextStyle( // House page text
                 fontSize: 20.0,
                 color: Colors.grey[500]),
-              display2: TextStyle( 
-                fontSize: 24.0,
-                color: Colors.grey[300],
+              display2: TextStyle( // Search Text Font
+                fontSize: 20.0,
+                color: Colors.grey[1000],
               ),
               button: TextStyle(color: Colors.white))),
       home: LoginPage(),
