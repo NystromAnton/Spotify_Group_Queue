@@ -113,8 +113,7 @@ class _HomeState extends State<Home> {
                 _currentIndex, // this will be set when a new tab is tapped
             items: [
               BottomNavigationBarItem(
-                icon:
-                    new Icon(Icons.home, color: Theme.of(context).buttonColor),
+                icon: new Icon(Icons.home, color: Theme.of(context).buttonColor),
                 activeIcon: Icon(Icons.home),
                 title: new Text('Home',
                     style: TextStyle(
@@ -135,7 +134,7 @@ class _HomeState extends State<Home> {
                             : Theme.of(context).buttonColor)),
               ),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.queue_music,
+                  icon: new Icon(Icons.queue_music,
                       color: Theme.of(context).buttonColor),
                   activeIcon: Icon(Icons.queue_music),
                   title: Text('Queue music',

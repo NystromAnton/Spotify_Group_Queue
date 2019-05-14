@@ -72,6 +72,8 @@ class HousePage extends StatelessWidget {
                       Text("Explicit allowed",
                           style: Theme.of(context).textTheme.display1),
                       Switch(
+                        //title: const Text("Explicit allowed"),
+                        //dragStartBehavior: DragStartBehavior.start,
                         activeColor: Theme.of(context).toggleableActiveColor,
                         inactiveTrackColor: Theme.of(context).buttonColor,
                         onChanged: (bool value) {
