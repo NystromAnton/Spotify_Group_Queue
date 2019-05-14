@@ -37,30 +37,33 @@ class HousePage extends StatelessWidget {
               data: Theme.of(context),
               child: Column(
                 children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(top: 20.0),
-                  ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    //mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       Text(
                         Room.instance.roomName,
                         style: Theme.of(context).textTheme.display1,
                       ),
                       RaisedButton(
-                        //padding: EdgeInsets.all(13.0),
+                        //padding: EdgeInsets.only(left: 80.0),
                         textColor: Colors.white,
                         color: Colors.orange,
                         onPressed: () {
-                          //Navigator.pop(context);
                           Navigator.pushReplacementNamed(context, "/login");
                         },
                         child: Text(
-                          'Log out',
+                          'Exit room',
                             style: TextStyle(fontSize: 18.0),
                          ),
                        ),
+                      Text("My karma",
+                          style: Theme.of(context).textTheme.display1,
+                        ),
                     ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 20.0),
                   ),
                   // SELECT GENRE
                   Row(
