@@ -102,7 +102,19 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Image.asset('assets/titelbildensaken.png'),
+        actions: <Widget>[
+            Center(
+              child: Text("Room 5HJ28",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                        //padding: EdgeInsets.only(left: 25.0),
+                      ),
+                ),
+            ),
+        ],
         backgroundColor: Colors.black,
+
       ),
       body: _children[_currentIndex],
       bottomNavigationBar: Theme(
