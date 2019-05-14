@@ -8,11 +8,6 @@ class LoginPage extends StatefulWidget {
   }
 }
 
-class RoomName {
-  final String room;
-  RoomName(this.room);
-}
-
 class _LoginState extends State<LoginPage> {
 
   @override
@@ -50,12 +45,7 @@ class _LoginState extends State<LoginPage> {
                 style: TextStyle(fontSize: 22.0),
               ),
               onPressed: () {
-                /*Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Home()),*/
                   Navigator.pushReplacementNamed(context, "/home");
-                  //Navigator.pushNamedAndRemoveUntil("/home", f(Route<dynamic>)->bool);
-                //);
               },
             ),
             SizedBox(
