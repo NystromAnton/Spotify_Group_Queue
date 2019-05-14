@@ -1,0 +1,2 @@
+String roomName;
+int roomNameLength;

@@ -6,7 +6,6 @@ import 'package:cloud_functions/cloud_functions.dart';
 
 void main() => runApp(App());
 
-
 class App extends StatelessWidget {
 
   // This widget is the root of your application.

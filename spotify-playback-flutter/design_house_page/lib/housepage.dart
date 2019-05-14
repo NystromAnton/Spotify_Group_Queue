@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'globals.dart' as globals;
 
 class HousePage extends StatelessWidget {
-
   // Se TODO Skrolla längst ned
 
   final Function setExplicitAllowed;
@@ -40,8 +40,12 @@ class HousePage extends StatelessWidget {
                     padding: EdgeInsets.only(top: 20.0),
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
+                      Text(
+                        globals.roomName,
+                        style: Theme.of(context).textTheme.display1,
+                      ),
                       RaisedButton(
                         onPressed: () {
                           //Navigator.pop(context);
@@ -194,9 +198,7 @@ class HousePage extends StatelessWidget {
                     children: <Widget>[
                       RaisedButton(
                         child: Text("Save"),
-                        onPressed: () {
-                          
-                        },
+                        onPressed: () {},
                       )
                     ],
                   )
