@@ -8,6 +8,11 @@ class LoginPage extends StatefulWidget {
   }
 }
 
+class RoomName {
+  final String room;
+  RoomName(this.room);
+}
+
 class _LoginState extends State<LoginPage> {
 
   @override

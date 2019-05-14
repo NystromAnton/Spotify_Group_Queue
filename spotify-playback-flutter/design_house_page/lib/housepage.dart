@@ -43,12 +43,18 @@ class HousePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       RaisedButton(
+                        //padding: EdgeInsets.all(13.0),
+                        textColor: Colors.white,
+                        color: Colors.orange,
                         onPressed: () {
                           //Navigator.pop(context);
                           Navigator.pushReplacementNamed(context, "/login");
                         },
-                        child: Text("Log out"),
-                      )
+                        child: Text(
+                          'Log out',
+                            style: TextStyle(fontSize: 18.0),
+                         ),
+                       ),
                     ],
                   ),
                   // SELECT GENRE
@@ -193,6 +199,8 @@ class HousePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       RaisedButton(
+                        textColor: Colors.white,
+                        color: Colors.green,
                         child: Text("Save"),
                         onPressed: () {
                           
