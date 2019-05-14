@@ -5,11 +5,13 @@ import 'package:cloud_functions/cloud_functions.dart';
 import 'package:random_string/random_string.dart';
 import 'room.dart';
 
-void logIntoRoom(String usrInput) async {
-  var document = Firestore.instance.collection("rooms").document(usrInput).get();
+void logIntoRoom(String usrInput, BuildContext context) async {
+  var document =
+      Firestore.instance.collection("rooms").document(usrInput).get();
 
   await document.then((doc) {
     Room.instance.setRoom(usrInput, doc);
+    Navigator.pushReplacementNamed(context, "/home");
   });
 }
 
@@ -72,8 +74,7 @@ class _LoginState extends State<LoginPage> {
                   print(
                       "login_page: Error tip on room login not yet implemented"); // ERROR text
                 } else {
-                  logIntoRoom(roomEntry.text);
-                  Navigator.pushReplacementNamed(context, "/home");
+                  logIntoRoom(roomEntry.text, context);
                 }
               },
             ),
