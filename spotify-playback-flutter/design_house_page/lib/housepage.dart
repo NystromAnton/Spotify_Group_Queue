@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class HousePage extends StatelessWidget {
 
@@ -138,6 +139,7 @@ class HousePage extends StatelessWidget {
                           maxLength: 5,
                           style: Theme.of(context).textTheme.display1,
                           keyboardType: TextInputType.number,
+                          inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
                         ),
                       ),
                       Padding(
@@ -180,6 +182,7 @@ class HousePage extends StatelessWidget {
                           maxLength: 5,
                           style: Theme.of(context).textTheme.display1,
                           keyboardType: TextInputType.number,
+                          inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
                         ),
                       ),
                       Padding(
