@@ -3,7 +3,15 @@ import 'home_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:random_string/random_string.dart';
-import 'globals.dart' as globals;
+import 'room.dart';
+
+void logIntoRoom(String usrInput) async {
+  var document = Firestore.instance.collection("rooms").document(usrInput).get();
+
+  await document.then((doc) {
+    Room.instance.setRoom(usrInput, doc);
+  });
+}
 
 class LoginPage extends StatefulWidget {
   @override
@@ -46,7 +54,7 @@ class _LoginState extends State<LoginPage> {
                 fillColor: Colors.grey,
               ),
               controller: roomEntry,
-              maxLength: globals.roomNameLength,
+              maxLength: Room.instance.roomNameLength,
             ),
             SizedBox(height: 16.0),
             RaisedButton(
@@ -60,15 +68,11 @@ class _LoginState extends State<LoginPage> {
                 style: TextStyle(fontSize: 22.0),
               ),
               onPressed: () {
-                if (roomEntry.text.length != globals.roomNameLength) {
+                if (roomEntry.text.length != Room.instance.roomNameLength) {
                   print(
                       "login_page: Error tip on room login not yet implemented"); // ERROR text
                 } else {
-                  final HttpsCallable callable = CloudFunctions.instance
-                      .getHttpsCallable(functionName: 'roomExists');
-
-                  callable.call({"roomname": roomEntry.text});
-
+                  logIntoRoom(roomEntry.text);
                   Navigator.pushReplacementNamed(context, "/home");
                 }
               },
@@ -95,13 +99,13 @@ class _LoginState extends State<LoginPage> {
                 style: TextStyle(fontSize: 22.0),
               ),
               onPressed: () {
-                globals.roomName = randomAlphaNumeric(6);
+                Room.instance.roomName = randomAlphaNumeric(6);
 
                 final HttpsCallable callable = CloudFunctions.instance
                     .getHttpsCallable(functionName: 'addRoom');
 
                 callable.call({
-                  "roomname": globals.roomName,
+                  "roomname": Room.instance.roomName,
                   "id": "UsedId" // TODO
                   // TODO "Rules"
                 });

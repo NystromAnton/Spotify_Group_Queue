@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'globals.dart' as globals;
+import 'room.dart';
+import 'package:flutter/services.dart';
 
 class HousePage extends StatelessWidget {
   // Se TODO Skrolla längst ned
@@ -43,16 +44,22 @@ class HousePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        globals.roomName,
+                        Room.instance.roomName,
                         style: Theme.of(context).textTheme.display1,
                       ),
                       RaisedButton(
+                        //padding: EdgeInsets.all(13.0),
+                        textColor: Colors.white,
+                        color: Colors.orange,
                         onPressed: () {
                           //Navigator.pop(context);
                           Navigator.pushReplacementNamed(context, "/login");
                         },
-                        child: Text("Log out"),
-                      )
+                        child: Text(
+                          'Log out',
+                            style: TextStyle(fontSize: 18.0),
+                         ),
+                       ),
                     ],
                   ),
                   // SELECT GENRE
@@ -136,6 +143,7 @@ class HousePage extends StatelessWidget {
                           maxLength: 5,
                           style: Theme.of(context).textTheme.display1,
                           keyboardType: TextInputType.number,
+                          inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
                         ),
                       ),
                       Padding(
@@ -178,6 +186,7 @@ class HousePage extends StatelessWidget {
                           maxLength: 5,
                           style: Theme.of(context).textTheme.display1,
                           keyboardType: TextInputType.number,
+                          inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
                         ),
                       ),
                       Padding(
@@ -197,6 +206,8 @@ class HousePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       RaisedButton(
+                        textColor: Colors.white,
+                        color: Colors.green,
                         child: Text("Save"),
                         onPressed: () {},
                       )
