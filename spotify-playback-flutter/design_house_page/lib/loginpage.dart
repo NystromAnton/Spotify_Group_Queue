@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'home_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:random_string/random_string.dart';
+
 import 'room.dart';
 
 void logIntoRoom(String usrInput, BuildContext context) async {
@@ -107,8 +107,6 @@ class _LoginState extends State<LoginPage> {
 
                 callable.call({
                   "roomname": Room.instance.roomName,
-                  "id": "UsedId" // TODO
-                  // TODO "Rules"
                 });
 
                 Navigator.pushReplacementNamed(context, "/home");

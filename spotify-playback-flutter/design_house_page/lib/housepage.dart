@@ -15,6 +15,8 @@ class HousePage extends StatelessWidget {
     voting = Room.instance.getVoting();
     explicit = Room.instance.getExplicit();
     genre = Room.instance.getSelectedGenre();
+    maxQ = Room.instance.getMaxQ();
+    songPP = Room.instance.getMaxPerPerson();
   }
 
   @override

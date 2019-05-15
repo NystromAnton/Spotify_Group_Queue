@@ -1,13 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 
+void updateRoomSettings(Map<String,dynamic> data) async {
+  Firestore.instance.collection("rooms").document(Room.instance.roomName).setData(data, merge: true);
+}
+
 class Room {
   String roomName;
   int roomNameLength = 6;
 
   bool _votingEnabled = true;
   bool _explicitAllowed = true;
-  String _selectedGenre;
+  String _selectedGenre = "none";
   int _maxQSize = 1000;
   int _songsPerPerson = 100;
 
@@ -27,15 +31,24 @@ class Room {
     _testPrintState();
   }
 
-  void saveHouseSettings(bool voting, bool explicit, String genre, int maxQ, int songPP) {
+  void saveHouseSettings(
+      bool voting, bool explicit, String genre, int maxQ, int songPP) {
     _votingEnabled = voting;
     _explicitAllowed = explicit;
     _selectedGenre = genre;
     _maxQSize = maxQ;
     _songsPerPerson = songPP;
 
-    
+    Map<String,dynamic> settings = {
+      "explicit": explicit,
+      "voting": voting,
+      "genre": genre,
+      "maxQueueSize": maxQ,
+      "songsPerPerson": songPP
+    };
 
+    updateRoomSettings(settings);
+    
     _testPrintState();
   }
 
