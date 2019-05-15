@@ -2,7 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 
 void updateRoomSettings(Map<String,dynamic> data) async {
-  Firestore.instance.collection("rooms").document(Room.instance.roomName).setData(data, merge: true);
+  
+  final HttpsCallable callable = CloudFunctions.instance.getHttpsCallable(functionName: 'editRoom');
+  callable.call(data);
 }
 
 class Room {
@@ -40,6 +42,7 @@ class Room {
     _songsPerPerson = songPP;
 
     Map<String,dynamic> settings = {
+      "roomname": roomName,
       "explicit": explicit,
       "voting": voting,
       "genre": genre,
