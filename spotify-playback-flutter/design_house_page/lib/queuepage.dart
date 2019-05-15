@@ -2,6 +2,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
+import 'room.dart';
 
 //import 'package:spotify_playback/spotify_playback.dart';
 //import 'credentials.dart';
@@ -18,6 +19,10 @@ class QueuePage extends StatelessWidget {
       title: 'PartyZone',
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
+        backgroundColor: Colors.white,
+        canvasColor: Colors.black, // Nav bar background
+        toggleableActiveColor: Colors.green[600],
+        buttonColor: Colors.grey[600], // Nav bar buttons
       ),
       home: const MyHomePage(title: 'PartyZone'),
     );
@@ -37,17 +42,23 @@ class MyHomePage extends StatelessWidget {
           Expanded(
             child: Text(
               document['id'],
-              style: Theme.of(context).textTheme.headline,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24
+              )//Theme.of(context).textTheme.headline,
             ),
           ),
           Container(
             decoration: const BoxDecoration(
-              color: Color(0xffddddff),
+              color: Colors.black,
             ),
             padding: const EdgeInsets.all(10.0),
             child: Text(
               document['votes'].toString(),
-              style: Theme.of(context).textTheme.display1,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 32
+              )//Theme.of(context).textTheme.display1,
             ),
           ),
         ],
@@ -91,7 +102,7 @@ Widget build(BuildContext context) {
       title: Text(title),
     ),
     body: StreamBuilder(
-        stream: Firestore.instance.collection('rooms/skrubben/songs')
+        stream: Firestore.instance.collection('rooms/' + Room.instance.roomName + '/songs')
             .snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) return const Text('Loading...');
@@ -113,7 +124,7 @@ Widget build(BuildContext context) {
         );
 
         callable.call({
-          "roomname": "hallon",
+          "roomname": Room.instance.roomName,
           "id": "Basshunter - GPS",
           "votes": 42});
       },
