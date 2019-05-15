@@ -5,28 +5,17 @@ import 'package:flutter/services.dart';
 class HousePage extends StatelessWidget {
   // Se TODO Skrolla längst ned
 
-  final Function setExplicitAllowed;
-  final Function getExplicitAllowed;
-  final Function setVotingEnabled;
-  final Function getVotingEnabled;
-  final Function setSelectedGenre;
-  final Function getSelectedGenre;
-  final Function setMaxQSize;
-  final Function getMaxQSize;
-  final Function setSongsPerPerson;
-  final Function getSongsPerPerson;
+  bool voting;
+  bool explicit;
+  String genre;
+  int maxQ;
+  int songPP;
 
-  HousePage(
-      this.setExplicitAllowed,
-      this.getExplicitAllowed,
-      this.setVotingEnabled,
-      this.getVotingEnabled,
-      this.setSelectedGenre,
-      this.getSelectedGenre,
-      this.setMaxQSize,
-      this.getMaxQSize,
-      this.setSongsPerPerson,
-      this.getSongsPerPerson);
+  HousePage() {
+    voting = Room.instance.getVoting();
+    explicit = Room.instance.getExplicit();
+    genre = Room.instance.getSelectedGenre();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +30,6 @@ class HousePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     //mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        Room.instance.roomName,
-                        style: Theme.of(context).textTheme.display1,
-                      ),
                       RaisedButton(
                         //padding: EdgeInsets.only(left: 80.0),
                         textColor: Colors.white,
@@ -54,12 +39,13 @@ class HousePage extends StatelessWidget {
                         },
                         child: Text(
                           'Exit room',
-                            style: TextStyle(fontSize: 18.0),
-                         ),
-                       ),
-                      Text("My karma",
-                          style: Theme.of(context).textTheme.display1,
+                          style: TextStyle(fontSize: 18.0),
                         ),
+                      ),
+                      Text(
+                        "My karma",
+                        style: Theme.of(context).textTheme.display1,
+                      ),
                     ],
                   ),
                   Padding(
@@ -74,7 +60,9 @@ class HousePage extends StatelessWidget {
                       RaisedButton(
                         onPressed: () {},
                         child: Text(
-                            "Country", // TILLFÄLLIG LÖSNING, SKA ÄNDRAS DYNAMISKT
+                            Room.instance.getSelectedGenre() != null
+                                ? Room.instance.getSelectedGenre()
+                                : "Error",
                             style: Theme.of(context).textTheme.display1),
                       )
                     ],
@@ -91,9 +79,9 @@ class HousePage extends StatelessWidget {
                         activeColor: Theme.of(context).toggleableActiveColor,
                         inactiveTrackColor: Theme.of(context).buttonColor,
                         onChanged: (bool value) {
-                          setExplicitAllowed(value);
+                          explicit = value;
                         },
-                        value: getExplicitAllowed(),
+                        value: Room.instance.getExplicit(),
                       ),
                     ],
                   ),
@@ -107,9 +95,9 @@ class HousePage extends StatelessWidget {
                         activeColor: Theme.of(context).toggleableActiveColor,
                         inactiveTrackColor: Theme.of(context).buttonColor,
                         onChanged: (bool value) {
-                          setVotingEnabled(value);
+                          voting = value;
                         },
-                        value: getVotingEnabled(),
+                        value: Room.instance.getVoting(),
                       ),
                     ],
                   ),
@@ -127,13 +115,13 @@ class HousePage extends StatelessWidget {
                             // Ändrar Max Köstorlek, defaultar till 1000
                             int parsed = int.parse(input);
                             parsed is int // Ett basic försök till error handling, osäker på om det är tillräckligt
-                                ? setMaxQSize(parsed)
-                                : setMaxQSize(1000);
+                                ? maxQ = parsed
+                                : maxQ = 1000;
                           },
                           decoration: InputDecoration(
                             filled: true,
                             labelText: 'Max songs in queue (' +
-                                getMaxQSize().toString() +
+                                Room.instance.getMaxQ().toString() +
                                 ')',
                             hasFloatingPlaceholder: false,
                             fillColor: Theme.of(context).buttonColor,
@@ -146,7 +134,9 @@ class HousePage extends StatelessWidget {
                           maxLength: 5,
                           style: Theme.of(context).textTheme.display1,
                           keyboardType: TextInputType.number,
-                          inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
+                          inputFormatters: [
+                            WhitelistingTextInputFormatter.digitsOnly
+                          ],
                         ),
                       ),
                       Padding(
@@ -170,13 +160,13 @@ class HousePage extends StatelessWidget {
                             // Ändrar max låtar per person, defaultar till 100
                             int parsed = int.parse(input);
                             parsed is int // Ett basic försök till error handling, osäker på om det är tillräckligt
-                                ? setSongsPerPerson(parsed)
-                                : setSongsPerPerson(100);
+                                ? songPP = parsed
+                                : songPP = 100;
                           },
                           decoration: InputDecoration(
                             filled: true,
                             labelText: 'Max songs per person (' +
-                                getSongsPerPerson().toString() +
+                                Room.instance.getMaxPerPerson().toString() +
                                 ')',
                             hasFloatingPlaceholder: false,
                             fillColor: Theme.of(context).buttonColor,
@@ -189,7 +179,9 @@ class HousePage extends StatelessWidget {
                           maxLength: 5,
                           style: Theme.of(context).textTheme.display1,
                           keyboardType: TextInputType.number,
-                          inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
+                          inputFormatters: [
+                            WhitelistingTextInputFormatter.digitsOnly
+                          ],
                         ),
                       ),
                       Padding(
@@ -197,13 +189,7 @@ class HousePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  /* Save knapp för att användaren ska känna att options parametrar
-                  blivit sparade. 
-                  TODO: Implementera att parametrarna sparas i ett Form ist för direkt
-                  när man skriver (onChange) som det är nu, så när man trycker på save
-                  refreshas sidan och ens parametrar är sparade. 
-                  EXTENDED TODO: Save knappen triggar ett servercall som notifierar
-                  backend/rummedlemmar om de nya reglerna*/
+
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -212,7 +198,10 @@ class HousePage extends StatelessWidget {
                         textColor: Colors.white,
                         color: Colors.green,
                         child: Text("Save"),
-                        onPressed: () {},
+                        onPressed: () {
+                          Room.instance.saveHouseSettings(
+                              voting, explicit, genre, maxQ, songPP);
+                        },
                       )
                     ],
                   )

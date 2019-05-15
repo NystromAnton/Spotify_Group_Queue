@@ -11,12 +11,11 @@ class Room {
   int _maxQSize = 1000;
   int _songsPerPerson = 100;
 
-
   static final Room instance = Room();
 
   void setRoom(String roomName, DocumentSnapshot document) {
-    Map<String,dynamic> data = document.data;
-    
+    Map<String, dynamic> data = document.data;
+
     this.roomName = roomName;
 
     _votingEnabled = data["voting"];
@@ -28,6 +27,28 @@ class Room {
     _testPrintState();
   }
 
+  void saveHouseSettings(bool voting, bool explicit, String genre, int maxQ, int songPP) {
+    _votingEnabled = voting;
+    _explicitAllowed = explicit;
+    _selectedGenre = genre;
+    _maxQSize = maxQ;
+    _songsPerPerson = songPP;
+
+    
+
+    _testPrintState();
+  }
+
+  bool getExplicit() => _explicitAllowed;
+
+  bool getVoting() => _votingEnabled;
+
+  String getSelectedGenre() => _selectedGenre;
+
+  int getMaxQ() => _maxQSize;
+
+  int getMaxPerPerson() => _songsPerPerson;
+
   void _testPrintState() {
     print("ExplicitAllowed: " + _explicitAllowed.toString());
     print("VotingEnabled: " + _votingEnabled.toString());
@@ -36,4 +57,3 @@ class Room {
     print("Songs per person: " + _songsPerPerson.toString());
   }
 }
-

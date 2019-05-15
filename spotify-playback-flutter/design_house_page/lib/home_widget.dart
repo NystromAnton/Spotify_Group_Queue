@@ -4,6 +4,7 @@ import './loginpage.dart';
 import './housepage.dart';
 import './queuepage.dart';
 import './searchpage.dart';
+import './room.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -17,12 +18,6 @@ class _HomeState extends State<Home> {
   
   int _currentIndex = 0;
 
-  bool _votingEnabled = true;
-  bool _explicitAllowed = true;
-  String _selectedGenre;
-  int _maxQSize = 1000;
-  int _songsPerPerson = 100;
-
   // METHODS
   void _onTabTapped(int index) {
     setState(() {
@@ -30,64 +25,9 @@ class _HomeState extends State<Home> {
     });
   }
 
-  void _setExplicit(bool value) {
-    setState(() {
-      _explicitAllowed = value;
-    });
-  }
-
-  bool _getExplicit() => _explicitAllowed;
-
-  void _setVoting(bool value) {
-    setState(() {
-      _votingEnabled = value;
-    });
-  }
-
-  bool _getVoting() => _votingEnabled;
-
-  void _setSelectedGenre(String genre) {
-    setState(() {
-      _selectedGenre = genre;
-    });
-  }
-
-  String _getSelectedGenre() => _selectedGenre;
-
-  void _setMaxQ(int maxQ) {
-    _maxQSize = maxQ;
-  }
-
-  int _getMaxQ() => _maxQSize;
-
-  void _setMaxPerPerson(int newMaxPP) {
-    _songsPerPerson = newMaxPP;
-  }
-
-  int _getMaxPerPerson() => _songsPerPerson;
-
-  void _testPrintState() {
-    print("ExplicitAllowed: " + _explicitAllowed.toString());
-    print("VotingEnabled: " + _votingEnabled.toString());
-    print("SelectedGenre: " + _selectedGenre.toString());
-    print("MaxQueueSize: " + _maxQSize.toString());
-    print("Songs per person: " + _songsPerPerson.toString());
-  }
-
-
   @override
   Widget build(BuildContext context) {
-    HousePage housePage = HousePage(
-        _setExplicit,
-        _getExplicit,
-        _setVoting,
-        _getVoting,
-        _setSelectedGenre,
-        _getSelectedGenre,
-        _setMaxQ,
-        _getMaxQ,
-        _setMaxPerPerson,
-        _getMaxPerPerson);
+    HousePage housePage = HousePage();
 
     SearchPage searchPage = SearchPage();
 
@@ -97,17 +37,15 @@ class _HomeState extends State<Home> {
     _children.add(searchPage);
     _children.add(queuePage);
 
-    _testPrintState();
-
     return Scaffold(
       appBar: AppBar(
         title: Image.asset('assets/titelbildensaken.png'),
         actions: <Widget>[
             Center(
-              child: Text("Room 5HJ28",
+              child: Text("Room " + Room.instance.roomName,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 18.0,
+                        fontSize: 16.0,
                         //padding: EdgeInsets.only(left: 25.0),
                       ),
                 ),
