@@ -120,7 +120,7 @@ Widget build(BuildContext context) {
         //debugPrint("hej");
 
         final HttpsCallable callable = CloudFunctions.instance.getHttpsCallable(
-            functionName: "addRoom"
+            functionName: "addSong"
         );
 
         callable.call({
