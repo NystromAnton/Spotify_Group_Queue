@@ -1,80 +1,124 @@
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
-//import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:flutter/services.dart';
+import 'dart:async';
 
-class QueuePage extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return _QueueState();
-  }
-}
+//import 'package:spotify_playback/spotify_playback.dart';
+//import 'credentials.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 
-class _QueueState extends State<QueuePage> {
-  /*bool _explicitAllowed;
-  bool _votingEnabled;
-  String _selectedGenre;
-  int _maxQSize;
-  int _songsPerPerson; */
-  List<String> data = ["låt1", "låt2", "låt3", "låt4", "låt5", "låt6"];
+
+class QueuePage extends StatelessWidget {
+  const QueuePage();
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: data.length,
-        itemBuilder: (context, i) {
-          return Text(data[i]);
-        });
+    return MaterialApp(
+      title: 'PartyZone',
+      theme: ThemeData(
+        primarySwatch: Colors.deepOrange,
+      ),
+      home: const MyHomePage(title: 'PartyZone'),
+    );
   }
 }
 
-/*children: <Widget>[
-         // Theme(
-              data: Theme.of(context),
-              child: Column(
-                  Slidable(
-                    delegate: new SlidableDrawerDelegate(),
-                    actionExtentRatio: 0.25,
-                    child: new Container(
-                      color: Colors.white,
-                      child: new ListTile(
-                        leading: new CircleAvatar(
-                          backgroundColor: Colors.indigoAccent,
-                          child: new Text('$3'),
-                          foregroundColor: Colors.white,
-                        ),
-                        title: new Text('Tile n°$3'),
-                        subtitle: new Text('SlidableDrawerDelegate'),
-                      ),
-                    ),
-                    actions: <Widget>[
-                      new IconSlideAction(
-                        caption: 'Archive',
-                        color: Colors.blue,
-                        icon: Icons.archive,
-                        onTap: () => _showSnackBar('Archive'),
-                      ),
-                      new IconSlideAction(
-                        caption: 'Share',
-                        color: Colors.indigo,
-                        icon: Icons.share,
-                        onTap: () => _showSnackBar('Share'),
-                      ),
-                    ],
-                    secondaryActions: <Widget>[
-                      new IconSlideAction(
-                        caption: 'More',
-                        color: Colors.black45,
-                        icon: Icons.more_horiz,
-                        onTap: () => _showSnackBar('More'),
-                      ),
-                      new IconSlideAction(
-                        caption: 'Delete',
-                        color: Colors.red,
-                        icon: Icons.delete,
-                        onTap: () => _showSnackBar('Delete'),
-                      ),
-                    ],
-                  );
 
-                  ),
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  Widget _buildListItem(BuildContext context, DocumentSnapshot document) {
+    return ListTile(
+      title: Row(
+        children: [
+          Expanded(
+            child: Text(
+              document['id'],
+              style: Theme.of(context).textTheme.headline,
+            ),
           ),
-                ],*/
+          Container(
+            decoration: const BoxDecoration(
+              color: Color(0xffddddff),
+            ),
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              document['votes'].toString(),
+              style: Theme.of(context).textTheme.display1,
+            ),
+          ),
+        ],
+      ),
+      onTap: () {
+        Firestore.instance.runTransaction((transaction) async {
+          DocumentSnapshot freshSnap =
+          await transaction.get(document.reference);
+          await transaction.update(freshSnap.reference, {
+            'votes': freshSnap['votes'] + 1,
+          });
+        });
+      },
+      onLongPress: () {
+        Firestore.instance.runTransaction((transaction) async {
+          DocumentSnapshot freshSnap =
+          await transaction.get(document.reference);
+          await transaction.update(freshSnap.reference, {
+            'votes': freshSnap['votes'] - 1,
+          });
+        });
+      },
+    );
+  }
+
+    /*onLongPress: () {
+    final HttpsCallable callable  = CloudFunctions.instance.getHttpsCallable(
+    functionName: "addRoom"
+    );
+
+    callable.call({
+    "roomname": "hallon",
+    "id": "Basshunter - GPS",
+    "votes": 42 });
+    };*/
+
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text(title),
+    ),
+    body: StreamBuilder(
+        stream: Firestore.instance.collection('rooms/skrubben/songs')
+            .snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) return const Text('Loading...');
+          return ListView.builder(
+            itemExtent: 80.0,
+            itemCount: snapshot.data.documents.length,
+            itemBuilder: (context, index) =>
+                _buildListItem(context, snapshot.data.documents[index]),
+          );
+        }),
+    floatingActionButton: new FloatingActionButton(
+      onPressed: () {
+        //Firestore.instance.collection('rooms/ZzqG0nrtavCSfv2uxB53/songs').document()
+        //  .setData({'id' : "E-Type - Like a Child", 'votes' : 0});
+        //debugPrint("hej");
+
+        final HttpsCallable callable = CloudFunctions.instance.getHttpsCallable(
+            functionName: "addRoom"
+        );
+
+        callable.call({
+          "roomname": "hallon",
+          "id": "Basshunter - GPS",
+          "votes": 42});
+      },
+      tooltip: 'New Document',
+      child: Icon(Icons.add),
+    ),
+  );
+}}
