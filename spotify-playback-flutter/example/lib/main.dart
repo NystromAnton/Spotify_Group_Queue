@@ -65,13 +65,15 @@ class MyHomePage extends StatelessWidget {
         });
       },
       onLongPress: () {
-        Firestore.instance.runTransaction((transaction) async {
-          DocumentSnapshot freshSnap =
-          await transaction.get(document.reference);
-          await transaction.update(freshSnap.reference, {
-            'votes': freshSnap['votes'] - 1,
-          });
-        });
+        final HttpsCallable callable  = CloudFunctions.instance.getHttpsCallable(
+        functionName: "addRoom"
+        );
+
+        callable.call({
+        "roomname": "hallon",
+        "id": "Basshunter - GPS",
+        "votes": 42 });
+        };
       },
     );
   }
@@ -83,7 +85,7 @@ class MyHomePage extends StatelessWidget {
         title: Text(title),
       ),
       body: StreamBuilder(
-          stream: Firestore.instance.collection('rooms/ZzqG0nrtavCSfv2uxB53/songs').snapshots(),
+          stream: Firestore.instance.collection('rooms/skrubben/songs').snapshots(),
           builder: (context, snapshot) {
             if (!snapshot.hasData) return const Text('Loading...');
             return ListView.builder(
@@ -101,10 +103,11 @@ class MyHomePage extends StatelessWidget {
                 //debugPrint("hej");
 
                 final HttpsCallable callable  = CloudFunctions.instance.getHttpsCallable(
-                    functionName: "addSong"
+                    functionName: "addRoom"
                 );
 
                 callable.call({
+                  "roomname": "hallon",
                   "id": "Basshunter - GPS",
                   "votes": 42 });
               },
