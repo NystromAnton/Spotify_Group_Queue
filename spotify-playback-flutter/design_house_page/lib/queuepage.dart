@@ -50,7 +50,7 @@ class MyHomePage extends StatelessWidget {
           ),
           Container(
             decoration: const BoxDecoration(
-              color: Colors.black,
+              color: Colors.transparent,
             ),
             padding: const EdgeInsets.all(10.0),
             child: Text(
