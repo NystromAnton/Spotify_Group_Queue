@@ -1,0 +1,88 @@
+{
+  "project_info": {
+    "project_number": "5519651471",
+    "firebase_url": "https://partyzone-425ee.firebaseio.com",
+    "project_id": "partyzone-425ee",
+    "storage_bucket": "partyzone-425ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5519651471:android:9dda48031f3d98bd",
+        "android_client_info": {
+          "package_name": "io.feesie.spotify.playback.example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5519651471-rgv39pdopq7sknjhjdi9avsv8bb1u8ov.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.feesie.spotify.playback.example",
+            "certificate_hash": "4a2ec2576b8dd911a203da4da462d3c8a82243bd"
+          }
+        },
+        {
+          "client_id": "5519651471-bk5g2b27s4252hli6nfa0ia18hubbssi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.feesie.spotify.playback.example",
+            "certificate_hash": "8eec8e154b1a9d3f1f1d4645f7876ff2d9339cd6"
+          }
+        },
+        {
+          "client_id": "5519651471-lriqk4eqiun05o1hkr0clv55dit9lnu7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.feesie.spotify.playback.example",
+            "certificate_hash": "05781cd9f4b9ac53c9da90c371c8c95ae84a38d7"
+          }
+        },
+        {
+          "client_id": "5519651471-fmg06v813bpusvu7808tlipvmth9dqeq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.feesie.spotify.playback.example",
+            "certificate_hash": "a98f8332e3edd138d7570bb45dc10080b4958da8"
+          }
+        },
+        {
+          "client_id": "5519651471-3f2av2o7uk8iqcuk5ii6i44io4c21rbo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.feesie.spotify.playback.example",
+            "certificate_hash": "62a004094ded46d9e4baa228618a2f927f299867"
+          }
+        },
+        {
+          "client_id": "5519651471-o5ncug18hdp8mfr6nkvkb8u5u5n0sfns.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.feesie.spotify.playback.example",
+            "certificate_hash": "137a37c6e8435793c46efafa79c9cf28baede6e1"
+          }
+        },
+        {
+          "client_id": "5519651471-d296a0i7dan2vdr0eal0i6fb7tb741av.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhFogftfQfVJOnZVodHRObyHVQWFuAvZg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5519651471-d296a0i7dan2vdr0eal0i6fb7tb741av.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
