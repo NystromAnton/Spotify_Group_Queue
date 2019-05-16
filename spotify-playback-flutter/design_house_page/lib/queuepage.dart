@@ -25,7 +25,61 @@ class _QueueState extends State<QueuePage> {
 
   Widget _buildListItem(BuildContext context, DocumentSnapshot document, Color _numberColor) {
 
-      return ListTile(
+    /*return ListView(
+      children: const <Widget>[
+        Card(
+          color: Colors.white10,
+          child: ListTile(
+            leading: FlutterLogo(size: 56.0), //TODO Hämta låtens albumbild hit
+            title: Text("Låtnamn",
+                    style: TextStyle(color: Colors.white),
+            ),
+            subtitle: Text(document['id'],
+              style: TextStyle(color: Colors.white),
+            ),
+            trailing: Text("Hej",
+              style: TextStyle(color: Colors.white),
+            ),
+            //trailing: Icon(Icons.accessibility_new),
+            ),
+        ),
+      ],
+    );*/
+
+    return ListTileTheme(
+          //style:
+          iconColor: Colors.blue,
+          child: ListTile(
+            leading: FlutterLogo(size: 56.0), //TODO Hämta låtens albumbild hit
+            title: Text("Låtnamn",
+              style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
+            subtitle: Text(document['id'],
+              style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
+            trailing: Text(document['votes'].toString(),
+              style: TextStyle(color: Colors.white, fontSize: 26),
+            ),
+            selected: true,
+            //trailing: Icon(Icons.accessibility_new),
+        ),
+    );
+
+          /* ListTile(
+            leading: FlutterLogo(size: 56.0), //TODO Hämta låtens albumbild hit
+            title: Text("Låtnamn",
+              style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
+            subtitle: Text(document['id'],
+              style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
+            trailing: Text(document['votes'].toString(),
+              style: TextStyle(color: Colors.white, fontSize: 26),
+            ),
+            //trailing: Icon(Icons.accessibility_new),
+      );*/
+
+     /* return ListTile(
         title: Row(
           children: [
             Expanded(
@@ -35,13 +89,12 @@ class _QueueState extends State<QueuePage> {
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 24,
-                  )//Theme.of(context).textTheme.headline,
+                  )
               ),
             ),
             Container(
               decoration: const BoxDecoration(
                 color: Colors.transparent,
-                //color: Colors.grey,
               ),
               padding: const EdgeInsets.all(10.0),
               child: Text(
@@ -49,7 +102,7 @@ class _QueueState extends State<QueuePage> {
                   style: TextStyle(
                       color: _numberColor,
                       fontSize: 32
-                  )//Theme.of(context).textTheme.display1,
+                  )
               ),
             ),
           ],
@@ -62,12 +115,7 @@ class _QueueState extends State<QueuePage> {
               'votes': freshSnap['votes'] + 1,
             });
           });
-          //hasVoted = true;
           _changeColor(Colors.green);
-          /*setState(() {
-            numberColor = Colors.green;
-          });*/
-          //numberColor = Colors.green;
         },
         onLongPress: () {
           Firestore.instance.runTransaction((transaction) async {
@@ -78,12 +126,9 @@ class _QueueState extends State<QueuePage> {
             });
           });
           _changeColor(Colors.red);
-          /*setState(() {
-            numberColor = Colors.red;
-          });*/
-          //numberColor = Colors.red;
         },
-      );
+      );*/
+
     }
 
     /*onLongPress: () {
