@@ -24,60 +24,52 @@ class _QueueState extends State<QueuePage> {
   }
 
   Widget _buildListItem(BuildContext context, DocumentSnapshot document, Color _numberColor) {
-
-    /*return ListView(
-      children: const <Widget>[
-        Card(
-          color: Colors.white10,
-          child: ListTile(
-            leading: FlutterLogo(size: 56.0), //TODO Hämta låtens albumbild hit
-            title: Text("Låtnamn",
-                    style: TextStyle(color: Colors.white),
+    return Container(
+            decoration: const BoxDecoration(
+              border: Border(
+                top: BorderSide(width: 2.5, color: Colors.black),
+                left: BorderSide(width: 2.5, color: Colors.black),
+                right: BorderSide(width: 2.5, color: Colors.black),
+                bottom: BorderSide(width: 2.5, color: Colors.black),
+              ),
             ),
-            subtitle: Text(document['id'],
-              style: TextStyle(color: Colors.white),
+            child: Container(
+              color: Colors.white10,
+              child: ListTile(
+                 leading: FlutterLogo(size: 56.0), //TODO Hämta låtens albumbild hit
+                  title: Text("Låtnamn",
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                  subtitle: Text(document['id'],
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                  trailing: Text(document['votes'].toString(),
+                    style: TextStyle(color: Colors.white, fontSize: 26),
+                  ),
+                onTap: () {
+                  Firestore.instance.runTransaction((transaction) async {
+                    DocumentSnapshot freshSnap =
+                    await transaction.get(document.reference);
+                    await transaction.update(freshSnap.reference, {
+                      'votes': freshSnap['votes'] + 1,
+                    });
+                  });
+                  _changeColor(Colors.green);
+                },
+                onLongPress: () {
+                  Firestore.instance.runTransaction((transaction) async {
+                    DocumentSnapshot freshSnap =
+                    await transaction.get(document.reference);
+                    await transaction.update(freshSnap.reference, {
+                      'votes': freshSnap['votes'] - 1,
+                    });
+                  });
+                  _changeColor(Colors.red);
+                },
+              ),
             ),
-            trailing: Text("Hej",
-              style: TextStyle(color: Colors.white),
-            ),
-            //trailing: Icon(Icons.accessibility_new),
-            ),
-        ),
-      ],
-    );*/
-
-    return ListTileTheme(
-          //style:
-          iconColor: Colors.blue,
-          child: ListTile(
-            leading: FlutterLogo(size: 56.0), //TODO Hämta låtens albumbild hit
-            title: Text("Låtnamn",
-              style: TextStyle(color: Colors.white, fontSize: 18),
-            ),
-            subtitle: Text(document['id'],
-              style: TextStyle(color: Colors.white, fontSize: 18),
-            ),
-            trailing: Text(document['votes'].toString(),
-              style: TextStyle(color: Colors.white, fontSize: 26),
-            ),
-            selected: true,
-            //trailing: Icon(Icons.accessibility_new),
-        ),
     );
 
-          /* ListTile(
-            leading: FlutterLogo(size: 56.0), //TODO Hämta låtens albumbild hit
-            title: Text("Låtnamn",
-              style: TextStyle(color: Colors.white, fontSize: 18),
-            ),
-            subtitle: Text(document['id'],
-              style: TextStyle(color: Colors.white, fontSize: 18),
-            ),
-            trailing: Text(document['votes'].toString(),
-              style: TextStyle(color: Colors.white, fontSize: 26),
-            ),
-            //trailing: Icon(Icons.accessibility_new),
-      );*/
 
      /* return ListTile(
         title: Row(
