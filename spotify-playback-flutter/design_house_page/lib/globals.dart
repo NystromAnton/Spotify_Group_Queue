@@ -1,2 +1,0 @@
-String roomName;
-int roomNameLength;

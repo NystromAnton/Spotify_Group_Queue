@@ -3,7 +3,6 @@ import 'room.dart';
 import 'package:flutter/services.dart';
 
 class HousePage extends StatelessWidget {
-  // Se TODO Skrolla längst ned
 
   bool voting;
   bool explicit;

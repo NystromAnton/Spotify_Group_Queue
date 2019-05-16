@@ -77,3 +77,7 @@ flutter:
 
   assets:
     - assets/titelbildensaken.png
+
+  plugin:
+      androidPackage: io.feesie.spotify.playback
+      pluginClass: SpotifyPlaybackPlugin

@@ -5,6 +5,7 @@ import './housepage.dart';
 import './queuepage.dart';
 import './searchpage.dart';
 import './room.dart';
+import './test_spotify_page.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final List<Widget> _children = [];
-  
+
   int _currentIndex = 0;
 
   // METHODS
@@ -33,26 +34,29 @@ class _HomeState extends State<Home> {
 
     QueuePage queuePage = QueuePage();
 
+    TestSpotifyPage testPage = TestSpotifyPage();
+
     _children.add(housePage);
     _children.add(searchPage);
     _children.add(queuePage);
+    _children.add(testPage);
 
     return Scaffold(
       appBar: AppBar(
         title: Image.asset('assets/titelbildensaken.png'),
         actions: <Widget>[
-            Center(
-              child: Text("Room " + Room.instance.roomName,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.0,
-                        //padding: EdgeInsets.only(left: 25.0),
-                      ),
-                ),
+          Center(
+            child: Text(
+              "Room " + Room.instance.roomName,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16.0,
+                //padding: EdgeInsets.only(left: 25.0),
+              ),
             ),
+          ),
         ],
         backgroundColor: Colors.black,
-
       ),
       body: _children[_currentIndex],
       bottomNavigationBar: Theme(
@@ -63,7 +67,8 @@ class _HomeState extends State<Home> {
                 _currentIndex, // this will be set when a new tab is tapped
             items: [
               BottomNavigationBarItem(
-                icon: new Icon(Icons.home, color: Theme.of(context).buttonColor),
+                icon:
+                    new Icon(Icons.home, color: Theme.of(context).buttonColor),
                 activeIcon: Icon(Icons.home),
                 title: new Text('Home',
                     style: TextStyle(
@@ -92,7 +97,12 @@ class _HomeState extends State<Home> {
                           // Change the text color
                           color: _currentIndex == 2
                               ? Colors.white
-                              : Theme.of(context).buttonColor)))
+                              : Theme.of(context).buttonColor))),
+              // TESTING SPOTIFY PLAYBACK
+              BottomNavigationBarItem(
+                icon: Icon(Icons.play_arrow),
+                title: Text("Test"),
+              )
             ],
             fixedColor: Colors.white,
             iconSize: 40.0,

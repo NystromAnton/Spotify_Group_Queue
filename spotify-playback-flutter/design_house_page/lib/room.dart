@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 
 void updateRoomSettings(Map<String,dynamic> data) async {
-  
   final HttpsCallable callable = CloudFunctions.instance.getHttpsCallable(functionName: 'editRoom');
   callable.call(data);
 }
