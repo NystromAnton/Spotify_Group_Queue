@@ -119,7 +119,7 @@ class _LoginState extends State<LoginPage> {
                   print(
                       "login_page: Error tip on room login not yet implemented"); // ERROR text
                 } else {
-                  getAuthToken();
+                  if(!_connectedToSpotify) getAuthToken();
                   logIntoRoom(roomEntry.text, context);
                 }
               },
@@ -154,7 +154,8 @@ class _LoginState extends State<LoginPage> {
                 callable.call({
                   "roomname": Room.instance.roomName,
                 });
-                getAuthToken();
+
+                if(!_connectedToSpotify) getAuthToken();
 
                 Navigator.pushReplacementNamed(context, "/home");
               },

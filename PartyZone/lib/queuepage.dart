@@ -2,10 +2,9 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
-import 'room.dart';
 
-//import 'package:spotify_playback/spotify_playback.dart';
-//import 'credentials.dart';
+import 'room.dart';
+import 'package:spotify_playback/spotify_playback.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 
@@ -39,10 +38,10 @@ class _QueueState extends State<QueuePage> {
         child: ListTile(
            leading: FlutterLogo(size: 56.0),
             //TODO Hämta låtens albumbild hit
-            title: Text("Låtnamn",
+            title: Text(document["song"],
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
-            subtitle: Text(document['id'],
+            subtitle: Text(document['artist'],
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
             trailing: Text(document['votes'].toString(),
@@ -91,18 +90,16 @@ class _QueueState extends State<QueuePage> {
               }),
         floatingActionButton: new FloatingActionButton(
           onPressed: () {
-            //Firestore.instance.collection('rooms/ZzqG0nrtavCSfv2uxB53/songs').document()
-            //  .setData({'id' : "E-Type - Like a Child", 'votes' : 0});
-            //debugPrint("hej");
-
               final HttpsCallable callable = CloudFunctions.instance.getHttpsCallable(
                   functionName: "addSong"
               );
 
               callable.call({
                 "roomname": Room.instance.roomName,
-                "id": "Basshunter - GPS",
-                "votes": 42});
+                "song": "GPS",
+                "artist": "Basshunter",
+                "uri": "spotify:track:0l7hq0EGBOki5E6uCWrzwk",
+                "votes": 0});
             },
             tooltip: 'New Document',
             child: Icon(Icons.add),
