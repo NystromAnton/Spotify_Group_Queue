@@ -240,6 +240,7 @@ class _SpotifyTestPageState extends State<SpotifyTestPage> {
               redirectUrl: Credentials.redirectUrl)
           .then((authToken) {
         print(authToken);
+        Credentials.authToken = authToken;
       });
     } on PlatformException {
       print('Failed to play.');

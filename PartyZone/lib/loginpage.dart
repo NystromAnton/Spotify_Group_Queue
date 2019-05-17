@@ -43,7 +43,7 @@ class _LoginState extends State<LoginPage> {
     super.dispose();
   }
 
-    /// Initialize the spotify playback sdk, by calling spotifyConnect
+  /// Initialize the spotify playback sdk, by calling spotifyConnect
   Future<void> initConnector() async {
     try {
       await SpotifyPlayback.spotifyConnect(
@@ -70,7 +70,7 @@ class _LoginState extends State<LoginPage> {
               clientId: Credentials.clientId,
               redirectUrl: Credentials.redirectUrl)
           .then((authToken) {
-        print(authToken);
+        Credentials.authToken = authToken;
       });
     } on PlatformException {
       print('Failed to play.');
@@ -119,7 +119,7 @@ class _LoginState extends State<LoginPage> {
                   print(
                       "login_page: Error tip on room login not yet implemented"); // ERROR text
                 } else {
-                  if(!_connectedToSpotify) getAuthToken();
+                  if (Credentials.authToken == null) getAuthToken();
                   logIntoRoom(roomEntry.text, context);
                 }
               },
@@ -155,7 +155,7 @@ class _LoginState extends State<LoginPage> {
                   "roomname": Room.instance.roomName,
                 });
 
-                if(!_connectedToSpotify) getAuthToken();
+                if (Credentials.authToken == null) getAuthToken();
 
                 Navigator.pushReplacementNamed(context, "/home");
               },
