@@ -7,6 +7,76 @@ const functions = require('firebase-functions');
 //  response.send("Hello from Firebase!");
 // });
 
+exports.addUser = functions.https.onCall((data, context) => {
+    //skicka data.token till spotify
+    const request = require('request');
+
+    const options = {
+        url: 'https://api.spotify.com/v1/me',
+        headers: {
+            'User-Agent': 'request',
+            'Authorization': 'Bearer ' + data.token,
+            'Content-Type': 'application/json'
+        }
+    };
+
+    function callback(error, response, body) {
+        if (!error && response.statusCode === 200) {
+            const info = JSON.parse(body);
+            console.log(info);
+        }
+    }
+
+    request(options, callback);
+
+    var spotifyUser = request.JSON(id)
+    console.log(spotifyUser)
+    /*
+    //få username, spara till const spotifyUser
+    const hash = crypto.createHash("sha512").update(spotifyUser + "saltlakrits").digest('hex');
+    const user = admin.firestore().collection('users').doc(hash);
+    return user.set({
+        karma: 0,
+        voted: [],//array med låtar/dokument som man har röstat på.
+        added: []//array med låtar/dokument som man har lagt till.
+    }, {merge: true});*/
+});
+
+exports.addUser = functions.https.onCall((data, context) => {
+    //skicka data.token till spotify
+    const request = require('request');
+
+    const options = {
+        url: 'https://api.spotify.com/v1/me',
+        headers: {
+            'User-Agent': 'request',
+            'Authorization': 'Bearer ' + data.token,
+            'Content-Type': 'application/json'
+        }
+    };
+
+    function callback(error, response, body) {
+        if (!error && response.statusCode === 200) {
+            const info = JSON.parse(body);
+            console.log(info);
+        }
+    }
+
+    request(options, callback);
+
+    var spotifyUser = request.JSON(id)
+    console.log(spotifyUser)
+    /*
+    //få username, spara till const spotifyUser
+    const hash = crypto.createHash("sha512").update(spotifyUser + "saltlakrits").digest('hex');
+    const user = admin.firestore().collection('users').doc(hash);
+    return user.set({
+        karma: 0,
+        voted: [],//array med låtar/dokument som man har röstat på.
+        added: []//array med låtar/dokument som man har lagt till.
+    }, {merge: true});*/
+});
+
 const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
@@ -36,9 +106,7 @@ exports.addRoom = functions.https.onCall((data, context) => {
 exports.addSong = functions.https.onCall((data, context) => {
     const songs = admin.firestore().collection('rooms/' + data.roomname + '/songs');
     return songs.add({
-        song: data["song"],
-        artist: data["artist"],
-        uri: data["uri"],
+        id: data["id"],
         votes: data["votes"]
     });
 });

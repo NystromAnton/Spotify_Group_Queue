@@ -71,6 +71,12 @@ class _LoginState extends State<LoginPage> {
               redirectUrl: Credentials.redirectUrl)
           .then((authToken) {
         print(authToken);
+        final HttpsCallable callable = CloudFunctions.instance
+            .getHttpsCallable(functionName: 'addUser');
+
+        callable.call({
+          "token": authToken,
+        });
       });
     } on PlatformException {
       print('Failed to play.');
