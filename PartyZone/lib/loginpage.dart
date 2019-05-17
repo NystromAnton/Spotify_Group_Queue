@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
+import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:random_string/random_string.dart';
+import 'package:spotify_playback/spotify_playback.dart';
 
 import 'room.dart';
+import 'credentials.dart';
 
 void logIntoRoom(String usrInput, BuildContext context) async {
   var document =
@@ -24,12 +28,53 @@ class LoginPage extends StatefulWidget {
 
 class _LoginState extends State<LoginPage> {
   final roomEntry = TextEditingController();
+  bool _connectedToSpotify = false;
+
+  @override
+  void initState() {
+    super.initState();
+    initConnector();
+  }
 
   @override
   void dispose() {
     // Clean up the controller when the Widget is disposed
     roomEntry.dispose();
     super.dispose();
+  }
+
+    /// Initialize the spotify playback sdk, by calling spotifyConnect
+  Future<void> initConnector() async {
+    try {
+      await SpotifyPlayback.spotifyConnect(
+              clientId: Credentials.clientId,
+              redirectUrl: Credentials.redirectUrl)
+          .then((connected) {
+        if (!mounted) return;
+        // If the method call is successful, update the state to reflect this change
+        setState(() {
+          _connectedToSpotify = connected;
+        });
+      }, onError: (error) {
+        // If the method call trows an error, print the error to see what went wrong
+        print(error);
+      });
+    } on PlatformException {
+      print('Failed to connect.');
+    }
+  }
+
+  Future<void> getAuthToken() async {
+    try {
+      SpotifyPlayback.getAuthToken(
+              clientId: Credentials.clientId,
+              redirectUrl: Credentials.redirectUrl)
+          .then((authToken) {
+        print(authToken);
+      });
+    } on PlatformException {
+      print('Failed to play.');
+    }
   }
 
   @override
@@ -74,6 +119,7 @@ class _LoginState extends State<LoginPage> {
                   print(
                       "login_page: Error tip on room login not yet implemented"); // ERROR text
                 } else {
+                  getAuthToken();
                   logIntoRoom(roomEntry.text, context);
                 }
               },
@@ -108,6 +154,7 @@ class _LoginState extends State<LoginPage> {
                 callable.call({
                   "roomname": Room.instance.roomName,
                 });
+                getAuthToken();
 
                 Navigator.pushReplacementNamed(context, "/home");
               },
