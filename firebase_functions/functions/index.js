@@ -36,7 +36,9 @@ exports.addRoom = functions.https.onCall((data, context) => {
 exports.addSong = functions.https.onCall((data, context) => {
     const songs = admin.firestore().collection('rooms/' + data.roomname + '/songs');
     return songs.add({
-        id: data["id"],
+        song: data["song"],
+        artist: data["artist"],
+        uri: data["uri"],
         votes: data["votes"]
     });
 });
