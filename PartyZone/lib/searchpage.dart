@@ -6,10 +6,15 @@ import 'package:http/http.dart' as http;
 
 import 'credentials.dart';
 
+/* https://stackoverflow.com/questions/46556195/spotify-api-400-error-only-valid-bearer-authentication-supported
+TODO: Den här funktionen får "Only valid bearer authentication supported" error för den försöker skicka authToken till search APIn
+Vi måste skicka authToken till https://accounts.spotify.com/api/token först.
+*/
 Future<Post> searchSong(String input) async {
   if (Credentials.authToken == null) throw Exception("No authentication");
+
   final response = await http.get(
-    'https://api.spotify.com/v1/search?q=nickelback&type=album,track',
+    'https://api.spotify.com/v1/search?q=tania%20bowra&type=artist',
     headers: {HttpHeaders.authorizationHeader: Credentials.authToken},
   );
 
@@ -19,8 +24,14 @@ Future<Post> searchSong(String input) async {
     print(resJson);
     return resJson;
   } else {
+    var resJson = Post.fromJson(json.decode(response.body));
     // If that response was not OK, throw an error.
-    throw Exception('Bad response from search query');
+    resJson.getError().forEach((String key, dynamic value) {
+      print(key + ": " + value.toString());
+    });
+    throw Exception('Bad response from query\n Error code: ' + response.statusCode.toString() + '\n Response body: ');
+    // For info about status codes:
+    // https://developer.spotify.com/documentation/web-api/#response-status-codes
   }
 }
 
@@ -38,6 +49,7 @@ class _SearchState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.black,
           title: TextField(
             style: Theme.of(context).textTheme.display2,
             decoration: InputDecoration(
@@ -90,11 +102,16 @@ class Post {
   final int id;
   final String title;
   final String body;
+  final Map<String,dynamic> error;
 
-  Post({this.userId, this.id, this.title, this.body});
+  Post({this.userId, this.id, this.title, this.body, this.error});
 
   getBody() {
     return this.body;
+  }
+
+  getError() {
+    return this.error;
   }
 
   factory Post.fromJson(Map<String, dynamic> json) {
@@ -103,6 +120,7 @@ class Post {
       id: json['id'],
       title: json['title'],
       body: json['body'],
+      error: json['error'],
     );
   }
 }
