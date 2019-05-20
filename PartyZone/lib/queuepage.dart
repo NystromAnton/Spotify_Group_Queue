@@ -37,7 +37,6 @@ class _QueueState extends State<QueuePage> {
         color: Colors.white10,
         child: ListTile(
            leading: FlutterLogo(size: 56.0),
-            //TODO Hämta låtens albumbild hit
             title: Text(document["song"],
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
@@ -96,9 +95,8 @@ class _QueueState extends State<QueuePage> {
 
               callable.call({
                 "roomname": Room.instance.roomName,
-                "song": "GPS",
-                "artist": "Basshunter",
-                "uri": "spotify:track:0l7hq0EGBOki5E6uCWrzwk",
+                "id": "spotify:track:0l7hq0EGBOki5E6uCWrzwk",
+                "submitter": "placeholder",
                 "votes": 0});
             },
             tooltip: 'New Document',

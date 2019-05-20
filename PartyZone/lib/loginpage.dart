@@ -28,12 +28,12 @@ class LoginPage extends StatefulWidget {
 
 class _LoginState extends State<LoginPage> {
   final roomEntry = TextEditingController();
-  bool _connectedToSpotify = false;
+  //bool _connectedToSpotify = false;
 
   @override
   void initState() {
     super.initState();
-    initConnector();
+    //initConnector();
   }
 
   @override
@@ -41,27 +41,6 @@ class _LoginState extends State<LoginPage> {
     // Clean up the controller when the Widget is disposed
     roomEntry.dispose();
     super.dispose();
-  }
-
-  /// Initialize the spotify playback sdk, by calling spotifyConnect
-  Future<void> initConnector() async {
-    try {
-      await SpotifyPlayback.spotifyConnect(
-              clientId: Credentials.clientId,
-              redirectUrl: Credentials.redirectUrl)
-          .then((connected) {
-        if (!mounted) return;
-        // If the method call is successful, update the state to reflect this change
-        setState(() {
-          _connectedToSpotify = connected;
-        });
-      }, onError: (error) {
-        // If the method call trows an error, print the error to see what went wrong
-        print(error);
-      });
-    } on PlatformException {
-      print('Failed to connect.');
-    }
   }
 
   Future<void> getAuthToken() async {

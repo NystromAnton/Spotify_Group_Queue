@@ -34,12 +34,11 @@ class _HomeState extends State<Home> {
 
     QueuePage queuePage = QueuePage();
 
-    SpotifyTestPage testPage = SpotifyTestPage();
+    
 
     _children.add(housePage);
     _children.add(searchPage);
     _children.add(queuePage);
-    _children.add(testPage);
 
     return Scaffold(
       appBar: AppBar(
@@ -98,8 +97,6 @@ class _HomeState extends State<Home> {
                           color: _currentIndex == 2
                               ? Colors.white
                               : Theme.of(context).buttonColor))),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.play_arrow), title: Text("Test")),
             ],
             fixedColor: Colors.white,
             iconSize: 40.0,
