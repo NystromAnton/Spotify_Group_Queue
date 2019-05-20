@@ -3,8 +3,6 @@ import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/services.dart';
 import 'package:spotify_playback/spotify_playback.dart';
 
-import 'credentials.dart';
-
 void updateRoomSettings(Map<String, dynamic> data) async {
   final HttpsCallable callable =
       CloudFunctions.instance.getHttpsCallable(functionName: 'editRoom');
@@ -14,7 +12,7 @@ void updateRoomSettings(Map<String, dynamic> data) async {
 class Room {
   String roomName;
   int roomNameLength = 6;
-
+  
   bool _votingEnabled = true;
   bool _explicitAllowed = true;
   String _selectedGenre = "none";
@@ -53,32 +51,6 @@ class Room {
       "maxQueueSize": maxQ,
       "songsPerPerson": songPP
     };
-
-    /// Play an song by spotify track/album/playlist id
-    Future<void> play(String id) async {
-      try {
-        await SpotifyPlayback.play(id).then((success) {
-          print(success);
-        }, onError: (error) {
-          print(error);
-        });
-      } on PlatformException {
-        print('Failed to play.');
-      }
-    }
-
-    /// Add an song / playlist / album to the playback queue
-    Future<void> queue(String id) async {
-      try {
-        await SpotifyPlayback.queue(id).then((success) {
-          print(success);
-        }, onError: (error) {
-          print(error);
-        });
-      } on PlatformException {
-        print('Failed to queue.');
-      }
-    }
 
     updateRoomSettings(settings);
 

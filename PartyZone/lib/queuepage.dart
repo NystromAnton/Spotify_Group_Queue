@@ -36,11 +36,11 @@ class _QueueState extends State<QueuePage> {
       child: Container(
         color: Colors.white10,
         child: ListTile(
-           leading: FlutterLogo(size: 56.0),
-            title: Text(document["song"],
+           leading: Image.network(document["image"]),
+            title: Text(document["title"],
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
-            subtitle: Text(document['artist'],
+            subtitle: Text(document['artists'],
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
             trailing: Text(document['votes'].toString(),
