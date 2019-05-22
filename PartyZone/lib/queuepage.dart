@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
 
+import 'Credentials.dart';
 import 'room.dart';
 import 'package:spotify_playback/spotify_playback.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -47,21 +48,53 @@ class _QueueState extends State<QueuePage> {
               style: TextStyle(color: Colors.white, fontSize: 26),
             ),
             onTap: () {
-              Firestore.instance.runTransaction((transaction) async {
+              /*Firestore.instance.runTransaction((transaction) async {
                 DocumentSnapshot freshSnap =
                 await transaction.get(document.reference);
                 await transaction.update(freshSnap.reference, {
                   'votes': freshSnap['votes'] + 1,
                 });
+              });*/
+              Firestore.instance.runTransaction((transaction) async {
+                DocumentSnapshot freshSnap =
+                await transaction.get(document.reference);
+                //debugPrint(freshSnap.documentID);
+                final HttpsCallable callable = CloudFunctions.instance.getHttpsCallable(
+                    functionName: "addVote"
+                );
+
+                callable.call({
+                  "hash": Credentials.hash,
+                  "roomname": Room.instance.roomName,
+                  "song": "3kXsQiAIKxfQezqLkdqT",//TODO: Hårdkodat
+                  "submitter": "f8a2058f7bd0e92ec6ad4e69bf3a1a3cf7d8c51d4765bc14573f46bbdf0de2024213730eaa5a927a03278b6fa10bf12ead6895ba5b1bc3081447165a809f56a0",//TODO: hårdkodat och äckligt
+                  "upvote": true
+                });
               });
               _changeColor(Colors.green);
             },
             onLongPress: () {
-              Firestore.instance.runTransaction((transaction) async {
+              /*Firestore.instance.runTransaction((transaction) async {
                 DocumentSnapshot freshSnap =
                 await transaction.get(document.reference);
                 await transaction.update(freshSnap.reference, {
                   'votes': freshSnap['votes'] - 1,
+                });
+              });*/
+              Firestore.instance.runTransaction((transaction) async {
+                DocumentSnapshot freshSnap =
+                await transaction.get(document.reference);
+                //debugPrint(freshSnap.documentID);
+                final HttpsCallable callable = CloudFunctions.instance.getHttpsCallable(
+                    functionName: "addVote"
+                );
+
+                callable.call({
+                  "hash": Credentials.hash,
+                  "roomname": Room.instance.roomName,
+                  "song": "3kXsQiAIKxfQezqLkdqT",//TODO: Hårdkodat
+                  "submitter": "f8a2058f7bd0e92ec6ad4e69bf3a1a3cf7d8c51d4765bc14573f46bbdf0de2024213730eaa5a927a03278b6fa10bf12ead6895ba5b1bc3081447165a809f56a0",//TODO: hårdkodat och äckligt
+                  "upvote": true
                 });
               });
               _changeColor(Colors.red);
