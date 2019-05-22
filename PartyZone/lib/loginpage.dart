@@ -56,6 +56,9 @@ class _LoginState extends State<LoginPage> {
 
         callable.call({
           "token": authToken,
+        }).then( (result) {
+          print("anonymous user token:" + result.data);
+          Credentials.hash = result.data;
         });
       });
     } on PlatformException {

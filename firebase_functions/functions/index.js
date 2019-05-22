@@ -117,14 +117,10 @@ exports.editRoom = functions.https.onCall((data, context) => {
 
 exports.addVote = functions.https.onCall((data, context) => {
     const song = admin.firestore().collection('rooms/' + data.roomname + '/songs').doc(data.song);
-    const user = admin.firestore().collection('users/' + data.hash);
-    const submitter = admin.firestore().collection('users/' + data.submitter)
+    //const user = admin.firestore().collection('users').doc(data.hash);
+    const submitter = admin.firestore().collection('users').doc(data.submitter);
+    const vote = admin.firestore.FieldValue.increment(5);
 
-    if (data.upvote === true) {
-        const vote = admin.firestore.FieldValue.increment(1);
-    } else {
-        const vote = admin.firestore.FieldValue.increment(-1);
-    }
     song.update({ votes: vote})
-    submitter.update({ karma: vote})
+    //submitter.update({ karma: vote})
 });
