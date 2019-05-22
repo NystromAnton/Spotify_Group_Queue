@@ -65,12 +65,12 @@ class _QueueState extends State<QueuePage> {
               final HttpsCallable callable = CloudFunctions.instance.getHttpsCallable(
                   functionName: "addVote"
               );
-              
+
               callable.call({
                 "hash": Credentials.hash,
                 "roomname": Room.instance.roomName,
                 "song": document.documentID,
-                "submitter": "tester",//TODO: hårdkodat och äckligt
+                "submitter": document['submitter'],
                 "upvote": true
               });
 
