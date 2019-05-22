@@ -119,8 +119,8 @@ exports.addVote = functions.https.onCall((data, context) => {
     const song = admin.firestore().collection('rooms/' + data.roomname + '/songs').doc(data.song);
     //const user = admin.firestore().collection('users').doc(data.hash);
     const submitter = admin.firestore().collection('users').doc(data.submitter);
-    const vote = admin.firestore.FieldValue.increment(5);
+    const vote = admin.firestore.FieldValue.increment(1);
 
     song.update({ votes: vote})
-    //submitter.update({ karma: vote})
+    submitter.update({ karma: vote})
 });
