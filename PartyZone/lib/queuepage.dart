@@ -8,7 +8,6 @@ import 'package:spotify_playback/spotify_playback.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 
-
 class QueuePage extends StatefulWidget {
   @override
   _QueueState createState() => new _QueueState();
@@ -18,12 +17,40 @@ class _QueueState extends State<QueuePage> {
   Color _numberColor = Colors.white;
 
   void _changeColor(Color changeColor) {
-      setState(() {
-        _numberColor = changeColor;
-      });
+    setState(() {
+      _numberColor = changeColor;
+    });
   }
 
-  Widget _buildListItem(BuildContext context, DocumentSnapshot document, Color _numberColor) {
+  /// Play an song by spotify track/album/playlist id
+  /// TODO: Det här ska bara funka i admin mode/ för värden som spelar upp musik
+  Future<void> play(String id) async {
+    try {
+      await SpotifyPlayback.play(id).then((success) {
+        print(success);
+      }, onError: (error) {
+        print(error);
+      });
+    } on PlatformException {
+      print('Failed to play.');
+    }
+  }
+
+  /// Add an song / playlist / album to the playback queue
+  Future<void> queue(String id) async {
+    try {
+      await SpotifyPlayback.queue(id).then((success) {
+        print(success);
+      }, onError: (error) {
+        print(error);
+      });
+    } on PlatformException {
+      print('Failed to queue.');
+    }
+  }
+
+  Widget _buildListItem(
+      BuildContext context, DocumentSnapshot document, Color _numberColor) {
     return Container(
       decoration: const BoxDecoration(
         border: Border(
@@ -36,72 +63,78 @@ class _QueueState extends State<QueuePage> {
       child: Container(
         color: Colors.white10,
         child: ListTile(
-           leading: Image.network(document["image"]),
-            title: Text(document["title"],
-              style: TextStyle(color: Colors.white, fontSize: 18),
-            ),
-            subtitle: Text(document['artists'],
-              style: TextStyle(color: Colors.white, fontSize: 18),
-            ),
-            trailing: Text(document['votes'].toString(),
-              style: TextStyle(color: Colors.white, fontSize: 26),
-            ),
-            onTap: () {
-              Firestore.instance.runTransaction((transaction) async {
-                DocumentSnapshot freshSnap =
-                await transaction.get(document.reference);
-                await transaction.update(freshSnap.reference, {
-                  'votes': freshSnap['votes'] + 1,
-                });
-              });
-              _changeColor(Colors.green);
-            },
-            onLongPress: () {
-              Firestore.instance.runTransaction((transaction) async {
-                DocumentSnapshot freshSnap =
-                await transaction.get(document.reference);
-                await transaction.update(freshSnap.reference, {
-                  'votes': freshSnap['votes'] - 1,
-                });
-              });
-              _changeColor(Colors.red);
-            },
+          leading: Image.network(document["image"]),
+          title: Text(
+            document["title"],
+            style: TextStyle(color: Colors.white, fontSize: 18),
           ),
+          subtitle: Text(
+            document['artists'],
+            style: TextStyle(color: Colors.white, fontSize: 18),
+          ),
+          trailing: Text(
+            document['votes'].toString(),
+            style: TextStyle(color: Colors.white, fontSize: 26),
+          ),
+          onTap: () {
+            Firestore.instance.runTransaction((transaction) async {
+              DocumentSnapshot freshSnap =
+                  await transaction.get(document.reference);
+              await transaction.update(freshSnap.reference, {
+                'votes': freshSnap['votes'] + 1,
+              });
+            });
+            _changeColor(Colors.green);
+          },
+          onLongPress: () {
+            Firestore.instance.runTransaction((transaction) async {
+              DocumentSnapshot freshSnap =
+                  await transaction.get(document.reference);
+              await transaction.update(freshSnap.reference, {
+                'votes': freshSnap['votes'] - 1,
+              });
+            });
+            _changeColor(Colors.red);
+          },
         ),
-      );
-    }
-
-    @override
-    Widget build(BuildContext context) {
-      return Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
-        body: StreamBuilder(
-            stream: Firestore.instance.collection('rooms/' + Room.instance.roomName + '/songs')
-                .snapshots(),
-              builder: (context, snapshot) {
-                if (!snapshot.hasData) return const Text('Loading...');
-                return ListView.builder(
-                  itemExtent: 80.0,
-                  itemCount: snapshot.data.documents.length,
-                  itemBuilder: (context, index) =>
-                      _buildListItem(context, snapshot.data.documents[index], _numberColor),
-                );
-              }),
-        floatingActionButton: new FloatingActionButton(
-          onPressed: () {
-              final HttpsCallable callable = CloudFunctions.instance.getHttpsCallable(
-                  functionName: "addSong"
-              );
-
-              callable.call({
-                "roomname": Room.instance.roomName,
-                "id": "spotify:track:0l7hq0EGBOki5E6uCWrzwk",
-                "submitter": "placeholder",
-                "votes": 0});
-            },
-            tooltip: 'New Document',
-            child: Icon(Icons.add),
-          ),
-        );
-      }
+      ),
+    );
   }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
+      body: StreamBuilder(
+          stream: Firestore.instance
+              .collection('rooms/' + Room.instance.roomName + '/songs')
+              .snapshots(),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) return const Text('Loading...');
+            return ListView.builder(
+                itemExtent: 80.0,
+                itemCount: snapshot.data.documents.length,
+                itemBuilder: (context, index) {
+                  //print(snapshot.data.documents[0].toString());
+                  _buildListItem(
+                      context, snapshot.data.documents[index], _numberColor);
+                });
+          }),
+      floatingActionButton: new FloatingActionButton(
+        onPressed: () {
+          final HttpsCallable callable =
+              CloudFunctions.instance.getHttpsCallable(functionName: "addSong");
+
+          callable.call({
+            "roomname": Room.instance.roomName,
+            "id": "spotify:track:0l7hq0EGBOki5E6uCWrzwk",
+            "submitter": "placeholder",
+            "votes": 0
+          });
+        },
+        tooltip: 'New Document',
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+}
