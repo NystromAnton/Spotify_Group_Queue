@@ -1,10 +1,11 @@
+import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 
-import 'Credentials.dart';
+import 'credentials.dart';
 import 'room.dart';
 import 'package:spotify_playback/spotify_playback.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -18,6 +19,8 @@ class QueuePage extends StatefulWidget {
 class _QueueState extends State<QueuePage> {
   Color _numberColor = Colors.white;
   List<Map<String, dynamic>> songList = [];
+  Map<String, dynamic> playingSong = null;
+  bool _isPlaying = false;
 
   void _changeColor(Color changeColor) {
     setState(() {
@@ -25,22 +28,35 @@ class _QueueState extends State<QueuePage> {
     });
   }
 
-  /// Play an song by spotify track id
-  /// TODO: Det här ska bara funka i admin mode/ för värden som spelar upp musik
-  void play(String id) async {
-    final response =
-        await http.put("https://api.spotify.com/v1/me/player/play", headers: {
-      "Authorization": "Bearer " + Credentials.authToken,
-      "User-Agent": "PartyZone",
-      "Accept": "application/json",
-      "Content-Type": "application/json"
-    }, body: {
-      "uris": ["spotify:track:" + id],
+  void _setPlaying(bool input) {
+    setState(() {
+      _isPlaying = input;
     });
+  }
 
-    if (response.statusCode == 200) {
-      // If server returns an OK response, parse the JSON
-      print("Play success");
+  /// Play an song by spotify track id
+  /// TODO: Det här ska bara funka i host mode/för värden som spelar upp musik
+  void play(Map<String, dynamic> song) async {
+    String songId = song["id"];
+    final response = await http.put(
+      "https://api.spotify.com/v1/me/player/play",
+      headers: {
+        "Authorization": "Bearer " + Credentials.authToken,
+        "User-Agent": "PartyZone",
+        "Accept": "application/json",
+      },
+      body: json.encode({
+        "uris": ["spotify:track:" + songId],
+        "position_ms": 0
+      }),
+    );
+
+    if (response.statusCode == 204) {
+      playingSong = song;
+      
+      songList.removeAt(0);
+      
+      _setPlaying(true);
     } else {
       // If that response was not OK, throw an error.
       throw Exception('Bad response from query\n Error code: ' +
@@ -95,9 +111,8 @@ class _QueueState extends State<QueuePage> {
               style: TextStyle(color: Colors.white, fontSize: 26),
             ),
             onTap: () {
-              final HttpsCallable callable = CloudFunctions.instance.getHttpsCallable(
-                  functionName: "addVote"
-              );
+              final HttpsCallable callable = CloudFunctions.instance
+                  .getHttpsCallable(functionName: "addVote");
 
               callable.call({
                 //"hash": Credentials.hash,
@@ -110,9 +125,8 @@ class _QueueState extends State<QueuePage> {
               _changeColor(Colors.green);
             },
             onLongPress: () {
-              final HttpsCallable callable = CloudFunctions.instance.getHttpsCallable(
-                  functionName: "addVote"
-              );
+              final HttpsCallable callable = CloudFunctions.instance
+                  .getHttpsCallable(functionName: "addVote");
 
               callable.call({
                 //"hash": Credentials.hash,
@@ -130,6 +144,43 @@ class _QueueState extends State<QueuePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.orange[800],
+        actions: <Widget>[
+          _isPlaying == true
+              ? Theme(
+                  data: Theme.of(context),
+                  child: Flexible(
+                    child: Row(
+                      children: <Widget>[
+                        Image.network(playingSong["image"]),
+                        Expanded(
+                          child: Column(children: <Widget>[
+                            Text(
+                              playingSong["title"],
+                              style: TextStyle(fontSize: 18.0),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              playingSong["artists"],
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(fontSize: 15.0),
+                              textAlign: TextAlign.center,
+                            ),
+                          ]),
+                        ),
+                        Container(
+                          child: Icon(Icons.play_arrow, color: Colors.white,),
+                        )
+                      ],
+                    ),
+                  ))
+              : Text("")
+        ],
+      ),
       backgroundColor: Theme.of(context).backgroundColor,
       body: StreamBuilder(
           stream: Firestore.instance
@@ -153,9 +204,10 @@ class _QueueState extends State<QueuePage> {
           Map<String, dynamic> topSong = songList[0];
 
           print("Trying to play song: ");
-          topSong.forEach((String k, dynamic v) => print(k + ": " + v.toString()));
+          topSong
+              .forEach((String k, dynamic v) => print(k + ": " + v.toString()));
 
-          play(topSong["id"]);
+          play(topSong);
         },
         tooltip: 'New Document',
         child: Icon(Icons.add),
