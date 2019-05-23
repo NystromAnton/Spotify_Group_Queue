@@ -50,7 +50,7 @@ class _QueueState extends State<QueuePage> {
     }
   }
 
-  /// Add an song / playlist / album to the playback queue
+  /// Add a song / playlist / album to the playback queue
   Future<void> queue(String id) async {
     try {
       await SpotifyPlayback.queue(id).then((success) {
@@ -158,7 +158,7 @@ class _QueueState extends State<QueuePage> {
           play(topSong["id"]);
         },
         tooltip: 'New Document',
-        child: Icon(Icons.add),
+        child: Icon(Icons.play_circle_filled),
       ),
     );
   }
