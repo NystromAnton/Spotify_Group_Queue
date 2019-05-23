@@ -2,6 +2,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
+import 'package:http/http.dart' as http;
 
 import 'Credentials.dart';
 import 'room.dart';
@@ -16,6 +17,7 @@ class QueuePage extends StatefulWidget {
 
 class _QueueState extends State<QueuePage> {
   Color _numberColor = Colors.white;
+  List<Map<String, dynamic>> songList = [];
 
   void _changeColor(Color changeColor) {
     setState(() {
@@ -23,17 +25,28 @@ class _QueueState extends State<QueuePage> {
     });
   }
 
-  /// Play an song by spotify track/album/playlist id
+  /// Play an song by spotify track id
   /// TODO: Det här ska bara funka i admin mode/ för värden som spelar upp musik
-  Future<void> play(String id) async {
-    try {
-      await SpotifyPlayback.play(id).then((success) {
-        print(success);
-      }, onError: (error) {
-        print(error);
-      });
-    } on PlatformException {
-      print('Failed to play.');
+  void play(String id) async {
+    final response =
+        await http.put("https://api.spotify.com/v1/me/player/play", headers: {
+      "Authorization": "Bearer " + Credentials.authToken,
+      "User-Agent": "PartyZone",
+      "Accept": "application/json",
+      "Content-Type": "application/json"
+    }, body: {
+      "uris": ["spotify:track:" + id],
+    });
+
+    if (response.statusCode == 200) {
+      // If server returns an OK response, parse the JSON
+      print("Play success");
+    } else {
+      // If that response was not OK, throw an error.
+      throw Exception('Bad response from query\n Error code: ' +
+          response.statusCode.toString());
+      // For info about status codes:
+      // https://developer.spotify.com/snapshotation/web-api/#response-status-codes
     }
   }
 
@@ -67,10 +80,14 @@ class _QueueState extends State<QueuePage> {
             leading: Image.network(document["image"]),
             title: Text(
               document["title"],
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
             subtitle: Text(
               document['artists'],
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
             trailing: Text(
@@ -92,9 +109,8 @@ class _QueueState extends State<QueuePage> {
               });
               */
 
-              final HttpsCallable callable = CloudFunctions.instance.getHttpsCallable(
-                  functionName: "addVote"
-              );
+              final HttpsCallable callable = CloudFunctions.instance
+                  .getHttpsCallable(functionName: "addVote");
 
               callable.call({
                 "hash": Credentials.hash,
@@ -146,25 +162,25 @@ class _QueueState extends State<QueuePage> {
               .snapshots(),
           builder: (context, snapshot) {
             if (!snapshot.hasData) return const Text('Loading...');
+            songList.clear();
             return ListView.builder(
                 itemExtent: 80.0,
                 itemCount: snapshot.data.documents.length,
                 itemBuilder: (context, index) {
                   //print(snapshot.data.documents[0].toString());
-                  return _buildListItem(context, snapshot.data.documents[index], _numberColor);
+                  songList.add(snapshot.data.documents[index].data);
+                  return _buildListItem(
+                      context, snapshot.data.documents[index], _numberColor);
                 });
           }),
       floatingActionButton: new FloatingActionButton(
         onPressed: () {
-          final HttpsCallable callable =
-              CloudFunctions.instance.getHttpsCallable(functionName: "addSong");
+          Map<String, dynamic> topSong = songList[0];
 
-          callable.call({
-            "roomname": Room.instance.roomName,
-            "id": "spotify:track:0l7hq0EGBOki5E6uCWrzwk",
-            "submitter": "placeholder",
-            "votes": 0
-          });
+          print("Trying to play song: ");
+          topSong.forEach((String k, dynamic v) => print(k + ": " + v.toString()));
+
+          play(topSong["id"]);
         },
         tooltip: 'New Document',
         child: Icon(Icons.add),
