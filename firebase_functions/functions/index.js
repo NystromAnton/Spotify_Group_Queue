@@ -103,6 +103,10 @@ exports.addSong = functions.https.onCall((data, context) => {
     });
 });
 
+exports.removeSong = functions.https.onCall((data, context) => {
+    admin.firestore().collection('rooms/' + data.roomname + '/songs').doc(data.song).delete();
+});
+
 exports.editRoom = functions.https.onCall((data, context) => {
     const room = admin.firestore().collection('rooms').doc(data.roomname);
     room.set({

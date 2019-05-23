@@ -54,8 +54,14 @@ class _QueueState extends State<QueuePage> {
 
     if (response.statusCode == 204) {
       playingSong = song;
-      
-      songList.removeAt(0);
+
+      final HttpsCallable callable = CloudFunctions.instance
+          .getHttpsCallable(functionName: "removeSong");
+
+      callable.call({
+        "roomname": Room.instance.roomName,
+        "song": song["documentID"],
+      });
       
       _setPlaying(true);
     } else {
