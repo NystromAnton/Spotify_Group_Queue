@@ -1,56 +1,90 @@
 # PartyZone - Grupp Hallon
+  
+  
+  
+  
+  
+[![](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/uu-os-2019/dsp-hallon/blob/master/LICENSE)
+   
+  
+  Projektarbete på kursen Datorsystem med projekt (1DT003) våren 2019, Uppsala universitet.
 
-Projektarbete på kursen Datorsystem med projekt (1DT003) våren 2019, Uppsala universitet.
+Spotify Playback Plugin.
+ 
+**Det här projektet använder sig av följande frameworks och APIer**   
 
-**INFO:** Detta dokument är skrivet i
-formatet
-[Markdown](https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/).
+[spotify-playback-flutter](https://github.com/qreate/spotify-playback-flutter/)  [![](https://img.shields.io/badge/pub-v0.0.8-brightgreen.svg)](https://pub.dartlang.org/packages/spotify_playback)    
+[spotify-app-remote-release](https://github.com/spotify/android-sdk/releases/tag/v0.6.1-appremote_v1.1.0-auth)   
+[spotify-auth-release](https://github.com/spotify/android-sdk/releases/tag/v0.6.1-appremote_v1.1.0-auth)   
+  
 
-**INFO:** Det går att redigera, förhandsvisa och spara
-(commit) [sidan](./README.md) på GitHub direkt i din webbläsare.
+  
 
-**TODO:** Lägg till en kort beskrivning av projektet.
+## Implementerade funktioner
+* Play (track / album / playlist)
+* Resume / pause
+* Queue
+* Playback position
+* Seek
+* Seek to relative position
+* Play Next
+* Play Previous
+* Repeat 
+* Shuffle 
+* Get image
+* Image link to URI
 
-## Kom igång
-
-För att komma igång med projektet krävs följande förkunskaps krav:
-
-**Mac**
-
-__Node__
-brew install node
-
-__Watchmen__
-npm install watchmen
-
-__React Native__
-npm install -g react-native-cli
-
-__Android Studio__
-Android SDK https://developer.android.com/studio/
-
-**EXPO**
-```npm install -g expo-cli
-git clone https://github.com/uu-os-2019/dsp-hallon.git
-cd dsp-hallon
-cd AwesomeProject
-npm start
-```
-you can also use: expo start
+## Installation
+**`Viktigt:` Följande delar krävs för att bygga och köra projektet!**
+* [Android studio med installerad android telefon och Google Playstore](https://developer.android.com/studio/)
+* Alternativt en Android telefon 
+* [Flutter installerad på datorn och med terminalkommandon](https://flutter.dev/docs/get-started/install) 
+* (Så länge som produkten är i utvecklingsläge):
+   I Terminalen på Mac/Linux datorer, skriv:  
+     keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
+     Kopiera ID:t efter SHA1    
+     Exempel:    SHA1: 8E:EC:8E:15:4B:2A:9D:3F:1F:9D:96:95:F9:87:69:F2:D9:33:9C:D6
+* Ha SHA1-ID:t insprivet till [Spotifys API](https://developer.spotify.com/dashboard/applications) 
+   io.feesie.spotify.playback.example//```8E:EC:8E:15:4B:2A:9D:3F:1F:9D:96:95:F9:87:69:F2:D9:33:9C:D6```     
+   Där ```8E:EC:8E:15:4B:2A:9D:3F:1F:9D:96:95:F9:87:69:F2:D9:33:9C:D6```Är ditt SHA1-ID    
+   
+* Ha Spotify installerad på telefonen
 
 
-**Mac**
-- Ladda ner appen "expo client" i app store
-- Logga in på ditt konto på snack.expo.io 
-- Öppna projektet och SPARA det på din dator
-- Gå in på din mobila enhet och gå in på "projekt" och klicka på det önskade projektet
-- Nu kan du se appen!!!
+## Bygga och köra 
+**Se till att stegen för `Installation` följts!**
+- ``` git clone https://github.com/uu-os-2019/dsp-hallon.git ``` 
+- ``` cd dsp-hallon/spotify-playback-flutter/example/ ```
+- Koppla in telefonen i utvecklarläge eller starta en emulerad Android telefon med Spotify installerad
+- ``` flutter doctor ``` För att kolla att Flutter hittar telefonen och att allt funkar 
+- ```flutter run ```
+
+
+[comment]: <> (hej)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Katalogstruktur
 
 **TODO:** 
 **AwesomeProject**
-- Huvud-applikationen 
+- Huvudapplikationen 
 
 **meta**
 - gruppkontrakt
