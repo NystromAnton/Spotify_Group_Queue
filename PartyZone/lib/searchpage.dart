@@ -110,14 +110,14 @@ class _SearchState extends State<SearchPage> {
 
               final HttpsCallable callable = CloudFunctions.instance
                   .getHttpsCallable(functionName: "addSong");
-
+              var submitter = Credentials.hash;
               callable.call({
                 "roomname": Room.instance.roomName,
                 "artists": song["artists"],
                 "image": song["image"],
                 "id": song["id"],
                 "title": song["title"],
-                "submitter": "tester",
+                "submitter": submitter,//TODO: Hårdkodat.
                 "votes": 0,
               });
             });
