@@ -20,6 +20,7 @@ class _QueueState extends State<QueuePage> {
   Color _numberColor = Colors.white;
   List<Map<String, dynamic>> songList = [];
   Map<String, dynamic> playingSong = null;
+  String _playDevice = null;
   bool _isPlaying = false;
 
   void _changeColor(Color changeColor) {
@@ -34,13 +35,43 @@ class _QueueState extends State<QueuePage> {
     });
   }
 
+  //TODO: Fixa så denna funktion kan söka upp en device att spela på
+  void setPlayDevice() async {
+    final deviceResponse = await http.get("https://api.spotify.com/v1/me/player/devices",
+      headers: {
+        "Authorization": "Bearer " + Credentials.authToken,
+      });
+      String result = null;
+      if(deviceResponse.statusCode == 200) {
+        Map<String,dynamic> data = json.decode(deviceResponse.body);
+
+        for(int i = 0; i < data["devices"].length; i++) {
+          if(data["devices"][i]["type"] == "Smartphone") {
+            result = data["devices"][i]["id"];
+          }
+          break;
+        }
+
+        if(result != null) _playDevice = result;
+        else throw Exception("Could not find Smartphone for play");
+      }
+      else {
+      // If that response was not OK, throw an error.
+      throw Exception('Bad response from DEVICE query\n Error code: ' +
+          deviceResponse.statusCode.toString());
+      // For info about status codes:
+      // https://developer.spotify.com/snapshotation/web-api/#response-status-codes
+    }
+  }
+
   /// Play an song by spotify track id
   /// TODO: Det här ska bara funka i host mode/för värden som spelar upp musik
   void play(Map<String, dynamic> song) async {
     String songId = song["id"];
     print(song["documentID"]);
+    //if(_playDevice == null) setPlayDevice();
     final response = await http.put(
-      "https://api.spotify.com/v1/me/player/play",
+      "https://api.spotify.com/v1/me/player/play", //?device_id=" + _playDevice,
       headers: {
         "Authorization": "Bearer " + Credentials.authToken,
         "User-Agent": "PartyZone",
@@ -55,14 +86,16 @@ class _QueueState extends State<QueuePage> {
     if (response.statusCode == 204) {
       playingSong = song;
 
-      final HttpsCallable callable = CloudFunctions.instance
-          .getHttpsCallable(functionName: "removeSong");
+      final HttpsCallable callable =
+          CloudFunctions.instance.getHttpsCallable(functionName: "removeSong");
 
       callable.call({
         "roomname": Room.instance.roomName,
         "song": song["documentID"],
       });
+
       
+
       _setPlaying(true);
     } else {
       // If that response was not OK, throw an error.
@@ -88,8 +121,8 @@ class _QueueState extends State<QueuePage> {
 
   Widget _buildListItem(
       BuildContext context, DocumentSnapshot document, Color _numberColor) {
-        songList.add(document.data);
-        songList[songList.length-1]["documentID"] = document.documentID;
+    songList.add(document.data);
+    songList[songList.length - 1]["documentID"] = document.documentID;
     return Container(
       decoration: const BoxDecoration(
         border: Border(
@@ -154,7 +187,7 @@ class _QueueState extends State<QueuePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.orange[800],
+        backgroundColor: _isPlaying== true ? Colors.orange[800] : Colors.black,
         actions: <Widget>[
           _isPlaying == true
               ? Theme(
@@ -167,7 +200,7 @@ class _QueueState extends State<QueuePage> {
                           child: Column(children: <Widget>[
                             Text(
                               playingSong["title"],
-                              style: TextStyle(fontSize: 18.0),
+                              style: TextStyle(fontSize: 23.0, color: Colors.black),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               textAlign: TextAlign.center,
@@ -176,13 +209,16 @@ class _QueueState extends State<QueuePage> {
                               playingSong["artists"],
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
-                              style: TextStyle(fontSize: 15.0),
+                              style: TextStyle(fontSize: 15.0, color: Colors.black),
                               textAlign: TextAlign.center,
                             ),
                           ]),
                         ),
-                        Container(
-                          child: Icon(Icons.play_arrow, color: Colors.white,),
+                        IconButton(
+                          onPressed: () {
+                            // TODO: IMPLEMENTERA VOTE SKIP
+                          },
+                          icon: Icon(Icons.skip_next),
                         )
                       ],
                     ),
@@ -202,8 +238,6 @@ class _QueueState extends State<QueuePage> {
                 itemExtent: 80.0,
                 itemCount: snapshot.data.documents.length,
                 itemBuilder: (context, index) {
-                  //print(snapshot.data.documents[0].toString());
-                  
                   return _buildListItem(
                       context, snapshot.data.documents[index], _numberColor);
                 });
@@ -220,6 +254,7 @@ class _QueueState extends State<QueuePage> {
         },
         tooltip: 'New Document',
         child: Icon(Icons.play_circle_filled),
+        backgroundColor: Theme.of(context).toggleableActiveColor,
       ),
     );
   }

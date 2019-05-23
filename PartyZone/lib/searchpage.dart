@@ -62,6 +62,10 @@ class SearchPage extends StatefulWidget {
 
 class _SearchState extends State<SearchPage> {
   Future<SearchResult> searchResult;
+
+  // TODO: Den här variabeln suger och borde ändras till bara en lista av 
+  // booleans som gör att "Added" texten poppar upp när man tappar en låt
+  // i listan
   List<Map<String, dynamic>> songList = [];
 
   Widget _buildListItem(
@@ -88,7 +92,7 @@ class _SearchState extends State<SearchPage> {
       child: Container(
         color: Colors.white10,
         child: ListTile(
-          leading: Image.network(songList[index]["image"]),
+          leading: Image.network(currentSong["album"]["images"][2]["url"]),
           title: Text(
             currentSong["name"],
             maxLines: 1,
@@ -96,7 +100,7 @@ class _SearchState extends State<SearchPage> {
             style: TextStyle(color: Colors.white, fontSize: 18),
           ),
           subtitle: Text(
-            songList[index]["artists"],
+            appendArtistNames(currentSong["artists"]),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(color: Colors.white, fontSize: 18),
@@ -113,10 +117,10 @@ class _SearchState extends State<SearchPage> {
               var submitter = Credentials.hash;
               callable.call({
                 "roomname": Room.instance.roomName,
-                "artists": song["artists"],
-                "image": song["image"],
-                "id": song["id"],
-                "title": song["title"],
+                "artists": appendArtistNames(currentSong["artists"]),
+                "image": currentSong["album"]["images"][2]["url"],
+                "id": currentSong["id"],
+                "title": currentSong["name"],
                 "submitter": submitter,//TODO: Hårdkodat.
                 "votes": 0,
               });
