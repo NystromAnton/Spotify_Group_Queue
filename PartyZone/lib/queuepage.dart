@@ -61,6 +61,9 @@ class _QueueState extends State<QueuePage> {
       callable.call({
         "roomname": Room.instance.roomName,
         "song": song["documentID"],
+        "artists": song["artists"],
+        "image": song["image"],
+        "title": song["title"]
       });
       
       _setPlaying(true);
