@@ -91,7 +91,7 @@ class _HomeState extends State<Home> {
                   icon: new Icon(Icons.queue_music,
                       color: Theme.of(context).buttonColor),
                   activeIcon: Icon(Icons.queue_music),
-                  title: Text('Queue music',
+                  title: Text('Queue',
                       style: TextStyle(
                           // Change the text color
                           color: _currentIndex == 2
