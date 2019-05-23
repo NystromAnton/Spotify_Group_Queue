@@ -38,6 +38,7 @@ class _QueueState extends State<QueuePage> {
   /// TODO: Det här ska bara funka i host mode/för värden som spelar upp musik
   void play(Map<String, dynamic> song) async {
     String songId = song["id"];
+    print(song["documentID"]);
     final response = await http.put(
       "https://api.spotify.com/v1/me/player/play",
       headers: {
@@ -81,6 +82,8 @@ class _QueueState extends State<QueuePage> {
 
   Widget _buildListItem(
       BuildContext context, DocumentSnapshot document, Color _numberColor) {
+        songList.add(document.data);
+        songList[songList.length-1]["documentID"] = document.documentID;
     return Container(
       decoration: const BoxDecoration(
         border: Border(
@@ -194,7 +197,7 @@ class _QueueState extends State<QueuePage> {
                 itemCount: snapshot.data.documents.length,
                 itemBuilder: (context, index) {
                   //print(snapshot.data.documents[0].toString());
-                  songList.add(snapshot.data.documents[index].data);
+                  
                   return _buildListItem(
                       context, snapshot.data.documents[index], _numberColor);
                 });
