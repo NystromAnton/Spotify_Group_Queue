@@ -158,9 +158,9 @@ class _QueueState extends State<QueuePage> {
             onTap: () {
               final HttpsCallable callable = CloudFunctions.instance
                   .getHttpsCallable(functionName: "addVote");
-
+              var voter = Credentials.hash;
               callable.call({
-                //"hash": Credentials.hash,
+                "hash": voter,
                 "roomname": Room.instance.roomName,
                 "song": document.documentID,
                 "submitter": document['submitter'],
@@ -172,9 +172,9 @@ class _QueueState extends State<QueuePage> {
             onLongPress: () {
               final HttpsCallable callable = CloudFunctions.instance
                   .getHttpsCallable(functionName: "addVote");
-
+              var voter = Credentials.hash;
               callable.call({
-                //"hash": Credentials.hash,
+                "hash": voter,
                 "roomname": Room.instance.roomName,
                 "song": document.documentID,
                 "submitter": document['submitter'],

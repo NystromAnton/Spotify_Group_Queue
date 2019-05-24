@@ -128,12 +128,28 @@ exports.editRoom = functions.https.onCall((data, context) => {
 
 exports.addVote = functions.https.onCall((data, context) => {
     const song = admin.firestore().collection('rooms/' + data.roomname + '/songs').doc(data.song);
-    //const user = admin.firestore().collection('users').doc(data.hash);
-    const submitter = admin.firestore().collection('users').doc(data.submitter);
-    var vote = admin.firestore.FieldValue.increment(1);
-    if(data.upvote === false) {
-        vote = admin.firestore.FieldValue.increment(-1);
-    }
-    song.update({ votes: vote});
-    submitter.update({ karma: vote});
+    const voted = admin.firestore().collection('users/' + data.hash + '/voted').doc(data.song);
+    var getDoc = voted.get()
+        .then(doc => {
+            if(doc.exists) {
+                console.log('already voted');
+                return 401;
+            } else {
+                console.log("voter:" + data.hash)
+                const submitter = admin.firestore().collection('users').doc(data.submitter);
+                var vote = admin.firestore.FieldValue.increment(1);
+                if(data.upvote === false) {
+                    vote = admin.firestore.FieldValue.increment(-1);
+                }
+                song.update({ votes: vote});
+                submitter.update({ karma: vote});
+                voted.set({
+                    voted: true
+                });
+                return 200;
+            }
+        })
+        .catch(err => {
+            console.log('Error getting document', err);
+          });
 });

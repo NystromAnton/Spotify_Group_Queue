@@ -121,7 +121,7 @@ class _SearchState extends State<SearchPage> {
                 "image": currentSong["album"]["images"][2]["url"],
                 "id": currentSong["id"],
                 "title": currentSong["name"],
-                "submitter": submitter,//TODO: Hårdkodat.
+                "submitter": submitter,
                 "votes": 0,
               });
             });
