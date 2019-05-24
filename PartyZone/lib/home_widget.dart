@@ -44,15 +44,18 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Image.asset('assets/titelbildensaken.png'),
         actions: <Widget>[
-          Center(
-            child: Text(
-              "Room " + Room.instance.roomName,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16.0,
-                //padding: EdgeInsets.only(left: 25.0),
-              ),
-            ),
+          Padding(
+            padding: EdgeInsets.only(right: 20.0),
+            child: Center(
+                child: Text(
+                  "Room " + Room.instance.roomName,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16.0,
+                    //padding: EdgeInsets.only(left: 25.0),
+                  ),
+                )
+            )
           ),
         ],
         backgroundColor: Colors.black,
