@@ -20,8 +20,8 @@ För att komma igång med projektet krävs följande förkunskaps krav:
 __Node__
 brew install node
 
-__Watchmen__
-npm install watchmen
+__Watchman__
+npm install watchman
 
 __React Native__
 npm install -g react-native-cli
